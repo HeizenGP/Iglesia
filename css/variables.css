@@ -1,0 +1,49 @@
+/* Global CSS Variables */
+:root {
+  /* Color System */
+  --color-primary: #3498db;
+  --color-secondary: #2ecc71;
+  --color-accent: #e74c3c;
+  --color-neutral: #ecf0f1;
+  --color-text: #2c3e50;
+  --color-success: #27ae60;
+  --color-warning: #f1c40f;
+  --color-error: #e74c3c;
+
+  /* Typography */
+  --font-family-sans: 'Helvetica Neue', Arial, sans-serif;
+  --font-family-serif: 'Georgia', serif;
+  --font-family-roboto: 'Roboto', sans-serif;
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --font-size-lg: 18px;
+  --line-height-base: 1.5;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Borders and Shadows */
+  --border-radius: 4px;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+  /* Z-Index */
+  --z-index-dropdown: 1000;
+  --z-index-modal: 1050;
+  --z-index-tooltip: 1100;
+}
