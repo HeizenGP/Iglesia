@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Ubicación - Iglesia DIOS NOS AMA</title>
+    <link rel="icon" href="../img/cruz.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/mapa.css">
+    <script src="../js/script.js"></script>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <style>
+        /* Estilos adicionales específicos para el mapa */
+        #mapa {
+            width: 60%;
+            height: 500px;
+            margin: 20px auto; /* Cambiado de "20px 0" a "20px auto" para centrar */
+            display: block; /* Asegura que se pueda centrar con margin auto */
+        }
+        
+        .map-container {
+            padding: 80px 0;
+        }
+        
+        .contact-info {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero {
+    background-image: url('../img/mapa.jpg'); /* Imagen específica para servicios */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="../img/logo.png" alt="logo" class="logo-img">
+                    <span class="logo-text"></span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#acerca-de">Acerca de</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="sermones.html">Sermones</a></li>
+                    <li><a href="mapa.html">Ubicación</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>Nuestra Ubicación</h1>
+            <p>Visítanos y forma parte de nuestra comunidad de fe.</p>
+        </div>
+    </section>
+
+    <section class="map-container">
+        <div class="container">
+            <h2 class="section-title">¿Cómo llegar?</h2>
+            
+            <!-- Contenedor del mapa -->
+            <div id="mapa"></div>
+            
+            <div class="contact-info">
+                <div class="address">
+                    <h3>Dirección</h3>
+                    <p>Jr. Progreso 123</p>
+                    <p>Tarapoto, San Martín</p>
+                    <p>Perú</p>
+                    <p>CP 22000</p>
+                    
+                    <h3>Horarios</h3>
+                    <p><strong>Domingos:</strong> 10:00 AM y 6:00 PM</p>
+                    <p><strong>Miércoles:</strong> 7:00 PM (Noche de oración)</p>
+                </div>
+                
+                <div class="contact">
+                    <h3>Contacto</h3>
+                    <p><strong>Teléfono:</strong> (+51) 995 769 424</p>
+                    <p><strong>Email:</strong> info@diosnosama.org</p>
+                    
+                    <h3>Transporte</h3>
+                    <p>Estamos ubicados a 5 minutos del centro de la ciudad. Hay servicio de mototaxi disponible desde cualquier punto de Tarapoto.</p>
+                    <p>Si viene en auto propio, contamos con estacionamiento gratuito.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Iglesia DIOS NOS AMA</h3>
+                    <p>Jr Progreso<br>Ciudad, Tarapoto <br>Teléfono: (+51) 995 769 424<br>Email: info@Diosnosama.org</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li>Domingos: 10:00 AM y 6:00 PM</li>
+                        <li>Noche de oración: Miércoles 7:00 PM</li>
+                        <li>Jóvenes: Sábado 7:00 PM</li>
+                        <li>Adolecentes: Viernes 7:00 AM</li>
+                        <li>Estudio bíblico: Domingo 8:00</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html#acerca-de">Acerca de</a></li>
+                        <li><a href="eventos.html">Eventos</a></li>
+                        <li><a href="sermones.html">Sermones</a></li>
+                        <li><a href="#">Ministerios</a></li>
+                        <li><a href="#">Donaciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Conéctate</h3>
+                    <div class="social-icons">
+                        <ul>
+                            <li><a href="https://www.facebook.com/profile.php?id=100069497589407" target="_blank" title="Facebook">
+                                <img src="../img/facebook.png" alt="Facebook" class="social-icon">Facebook
+                                </a></li>
+                            <li><a href="https://www.instagram.com/diosnosama.tarapoto/" target="_blank" title="Instagram">
+                                <img src="../img/instagram.png" alt="Instagram" class="social-icon">Instagram
+                                </a></li>
+                            <li><a href="" target="_blank" title="YouTube">
+                                <img src="../img/youtube.png" alt="YouTube" class="social-icon">YouTube
+                                </a></li>
+                            <li><a href="https://wa.me/+51995769424?text=Hola%20te%20estoy%20contactando%20desde%20mi%20web" target="_blank" title="WhatsApp">
+                                <img src="../img/whatsapp.png" alt="WhatsApp" class="social-icon">WhatsApp
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Iglesia Comunitaria DIOS NOS AMA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para Leaflet API -->
+    <script>
+        function iniciarMapa() {
+            // Coordenadas de la iglesia
+            const lat = -6.4916652;
+            const lng = -76.3788718;
+            
+            // Crear el mapa
+            const mapa = L.map('mapa').setView([lat, lng], 16);
+            
+            // Agregar las capas de OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(mapa);
+            
+            // Agregar un marcador
+            const marcador = L.marker([lat, lng]).addTo(mapa);
+            
+            // Agregar ventana de información
+            marcador.bindPopup(`
+                <div style="text-align:center">
+                    <h3>Iglesia DIOS NOS AMA</h3>
+                    <p>Jr. Progreso, Tarapoto</p>
+                    <p>Tel: (+51) 995 769 424</p>
+                </div>
+            `).openPopup();
+        }
+        
+        // Iniciar mapa cuando se cargue la página
+        document.addEventListener('DOMContentLoaded', iniciarMapa);
+    </script>
+</body>
+</html>

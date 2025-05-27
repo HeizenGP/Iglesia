@@ -1,0 +1,25 @@
+/* Importar los estilos base del sitio */
+@import url('styles.css');
+
+/* Estilos adicionales específicos para la página de servicios */
+.services-content {
+    padding: 80px 0;
+}
+
+/* Aquí puedes añadir más estilos específicos para la página de servicios */
+.service-item {
+    margin-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-item h3 {
+    margin-top: 0;
+    color: #0077cc;
+}
+
+/* Cualquier otro estilo específico para la página de servicios */
+.hero {
+    background-image: url('../img/servicios.jpg'); /* Imagen específica para servicios */
+}

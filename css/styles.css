@@ -1,0 +1,435 @@
+/* Reset de márgenes y paddings, uso de box-sizing para incluir padding y border en el tamaño total del elemento. También se establece una fuente por defecto. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos generales del body */
+body {
+    font-family: "Lato" sans-serif;
+    color: #050505;
+    line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
+}
+
+/* Encabezado de la página */
+header {
+    background-color: #656554;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra inferior sutil */
+    position: fixed; /* Fijo en la parte superior al hacer scroll */
+    width: 100%;
+    z-index: 1000; /* Se asegura de estar por encima de otros elementos */
+}
+
+/* Contenedor general con un ancho máximo y centrado */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilos de la barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5% 0; /* Reducido de 5px a 2px */
+}
+
+/* Logo de la página */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+color: #333;
+}
+
+.logo-img {
+    height: 65px; /* Reducido de 80px a 65px */
+    margin-right: 10px;
+}
+
+.logo-text {
+font-size: 28px; /* Aumentado de 24px a 28px */
+    font-weight: bold;
+    color: black;
+}
+
+/* Lista de enlaces de navegación */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+/* Estilos de los enlaces de navegación */
+.nav-links a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fefefe;
+}
+
+/* Estilos comunes para todas las secciones hero */
+.hero {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding-top: 100px;
+}
+
+/* Estilos específicos solo para la página de inicio */
+.hero-home {
+    background-image: url('../img/fondo1.jpg');
+}
+
+/* Título del hero */
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+/* Párrafo del hero */
+.hero p {
+    font-size: 20px;
+    max-width: 700px;
+}
+
+/* Espaciado para secciones */
+section {
+    padding: 80px 0;
+}
+
+/* Títulos de sección */
+.section-title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Contenido de la sección "about" (acerca de) */
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text, .about-image {
+    flex: 1;
+}
+
+/* Imagen en la sección "about" */
+.about-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+/* Sección de creencias */
+.beliefs {
+    background-color: #f7f7f7;
+    padding: 80px 0;
+}
+
+/* Grid de creencias */
+.beliefs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjetas de creencias individuales */
+.belief-item {
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Encabezado de cada creencia */
+.belief-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+/* Título de la creencia */
+.belief-header h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Botón para expandir/colapsar */
+.toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
+
+/* Círculo que contiene el símbolo (+/-) */
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e6e6e6;
+    color: #999;
+    font-size: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estado activo del item de creencia */
+.belief-item.active .circle {
+    background-color: #ccc;
+    color: #666;
+    content: "-";
+}
+
+/* Contenido oculto por defecto */
+.belief-content {
+    display: none;
+    padding: 0 20px 20px 20px;
+    line-height: 1.6;
+}
+
+/* Mostrar contenido cuando está activo */
+.belief-item.active .belief-content {
+    display: block;
+}
+
+/* Estilo para versículos bíblicos */
+.bible-verses {
+    margin-top: 15px;
+    color: #666;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* Adaptación responsiva para creencias */
+@media (max-width: 900px) {
+    .beliefs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Grid para miembros del equipo */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Estilo para cada miembro del equipo */
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.team-member h3 {
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    color: #666;
+}
+
+/* Sección de llamado a la acción */
+.cta {
+    background-color: #535c5a;
+    color: white;
+    text-align: center;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    background-color: white;
+    color: #0066cc;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #f2f2f2;
+    transform: translateY(-3px);
+}
+
+/* Pie de página */
+footer {
+    background-color: #000000;
+    color: white;
+    padding: 50px 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.footer-column h3 {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.footer-column h3:after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: #ddd;
+    margin-top: 8px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+/* Derechos de autor */
+.copyright {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+}
+
+/* Estilos responsivos */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+    }
+
+    .values-grid, .team-grid, .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .values-grid, .team-grid, .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        display: none; /* Oculta la navegación en móviles */
+    }
+}
+
+/* Estilos extra del logo */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.logo-img {
+    height: 65px; /* Reducido de 80px a 65px */
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 28px; /* Aumentado de 24px a 28px */
+    font-weight: bold;
+}
+
+/* Estilo del logo en pantallas pequeñas */
+@media (max-width: 768px) {
+    .logo-text {
+        display: none;
+    }
+
+    .logo-img {
+        height: 50px; /* Reducido de 60px a 50px */
+    }
+}
+
+/* Estilos para íconos sociales */
+.social-icons {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.social-icons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-icons li {
+    margin-bottom: 12px;
+    display: flex;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:over {
+    transform: translateX(5px);
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Si quieres que los iconos tengan un efecto de brillo al pasar el cursor */
+.social-icons a:hover .social-icon {
+    filter: brightness(1.2);
+}
+
+
