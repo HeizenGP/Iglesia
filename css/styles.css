@@ -712,139 +712,448 @@ footer {
 }
 
 /* ========================================
-   5. EVENTOS PAGE STYLES
+   SERMONES - FUNCIONALIDADES AVANZADAS
    ======================================== */
 
-/* ------ ESTRUCTURA GENERAL ------ */
-/* EVENTOS: Contenedor principal de la página de eventos */
-.events-content {
-    padding: 80px 0;
+/* ------ HEADER DE SERMONES ------ */
+.sermones-header {
+    margin-bottom: var(--spacing-2xl);
+    text-align: center;
 }
 
-/* ------ TARJETAS DE EVENTOS ------ */
-/* EVENTOS: Tarjeta individual de evento con sombra y bordes redondeados */
-.event-card {
-    margin-bottom: 40px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    background-color: #fff;
+.sermones-controls {
+    margin-top: var(--spacing-xl);
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
 }
 
-/* ------ IMAGEN DEL EVENTO ------ */
-/* EVENTOS: Contenedor de la imagen principal del evento */
-.event-card .event-image {
-    height: 200px;
-    overflow: hidden;
-}
-
-/* EVENTOS: Imagen del evento con efecto zoom al hover */
-.event-card img {
+/* ------ BARRA DE BÚSQUEDA ------ */
+.search-container {
+    position: relative;
+    max-width: 500px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
 }
 
-/* EVENTOS: Efecto hover para agrandar ligeramente la imagen */
-.event-card:hover img {
+.search-input {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: var(--border-width) var(--border-style) var(--color-gray-lighter);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-all);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* ------ LOADING SERMONES ------ */
+.loading-sermones {
+    text-align: center;
+    padding: var(--spacing-4xl) var(--spacing-lg);
+    color: var(--color-gray-medium);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--color-gray-lightest);
+    border-top: 4px solid var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto var(--spacing-lg);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ------ TARJETAS DE SERMONES MEJORADAS ------ */
+.sermon-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition-all);
+}
+
+.sermon-card.hover-effect {
+    transform: var(--transform-hover-up-sm);
+    box-shadow: var(--shadow-2xl);
+}
+
+/* ------ DURACIÓN EN THUMBNAIL ------ */
+.sermon-thumbnail {
+    position: relative;
+}
+
+.sermon-duration {
+    position: absolute;
+    top: var(--spacing-base);
+    right: var(--spacing-base);
+    background-color: rgba(0,0,0,0.8);
+    color: var(--color-white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+}
+
+/* ------ BOTÓN DE REPRODUCCIÓN MEJORADO ------ */
+.sermon-play-btn {
+    transition: var(--transition-all);
+}
+
+.sermon-play-btn.playing {
+    background-color: var(--color-primary);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 var(--color-primary-transparent); }
+    70% { box-shadow: 0 0 0 10px rgba(0,119,204,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,119,204,0); }
+}
+
+/* ------ VERSÍCULO BÍBLICO ------ */
+.sermon-verse {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background-color: var(--bg-light-gray);
+    border-left: 4px solid var(--color-primary);
+    font-style: italic;
+    color: var(--color-gray-dark);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* ------ CATEGORÍAS ACTIVAS ------ */
+.categoria-tag.active {
+    background-color: var(--color-primary);
+    color: var(--color-white);
     transform: scale(1.05);
 }
 
-/* ------ CONTENIDO DE LA TARJETA ------ */
-/* EVENTOS: Contenedor del contenido textual del evento */
-.event-details {
-    padding: 20px;
+/* ------ ESTADÍSTICAS ------ */
+.sermones-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-4xl);
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--bg-light-gray);
+    border-radius: var(--radius-md);
 }
 
-/* EVENTOS: Etiqueta de fecha destacada */
-.event-date {
-    display: inline-block;
-    background-color: #0077cc;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-weight: 500;
-    margin-bottom: 10px;
+.stat-item {
+    text-align: center;
+    padding: var(--spacing-lg);
 }
 
-/* EVENTOS: Título principal del evento */
-.event-card h3 {
-    margin-top: 0;
-    color: #333;
-    font-size: 1.4rem;
+.stat-number {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
 }
 
-/* ------ INFORMACIÓN ADICIONAL ------ */
-/* EVENTOS: Ubicación del evento con ícono de mapa */
-.event-location {
+.stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-medium);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ------ REPRODUCTOR FLOTANTE ------ */
+.reproductor-flotante {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-white);
+    border-top: var(--border-width) var(--border-style) var(--color-gray-lighter);
+    box-shadow: var(--shadow-xl);
+    z-index: var(--z-fixed);
+    padding: var(--spacing-lg);
+    display: none;
+}
+
+.reproductor-info {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.reproductor-titulo {
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-dark);
+}
+
+.reproductor-controles {
     display: flex;
     align-items: center;
-    margin: 10px 0;
-    color: #666;
+    gap: var(--spacing-md);
 }
 
-/* EVENTOS: Ícono de ubicación antes del texto */
-.event-location::before {
-    content: "📍";
-    margin-right: 5px;
+.btn-control {
+    background: none;
+    border: none;
+    font-size: var(--font-size-lg);
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-full);
+    transition: var(--transition-bg);
 }
 
-/* EVENTOS: Hora del evento con ícono de reloj */
-.event-time {
+.btn-control:hover {
+    background-color: var(--bg-medium-gray);
+}
+
+.progress-container {
+    flex: 1;
+    margin: 0 var(--spacing-md);
+}
+
+.progress-bar {
+    height: 6px;
+    background-color: var(--color-gray-lightest);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    margin-bottom: var(--spacing-xs);
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: var(--radius-sm);
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+.time-display {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-medium);
+    text-align: center;
+}
+
+/* ------ MODAL DE SERMÓN COMPLETO ------ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: var(--z-modal);
+    display: none;
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    max-width: 800px;
+    margin: var(--spacing-3xl) auto;
+    box-shadow: var(--shadow-2xl);
+}
+
+.modal-header {
+    padding: var(--spacing-xl);
+    border-bottom: var(--border-width) var(--border-style) var(--color-gray-lightest);
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    color: #666;
-    margin-bottom: 15px;
 }
 
-/* EVENTOS: Ícono de reloj antes del texto */
-.event-time::before {
-    content: "🕒";
-    margin-right: 5px;
+.modal-header h2 {
+    margin: 0;
+    color: var(--color-dark);
 }
 
-.event-description {
-    color: #555;
-    margin-bottom: 15px;
+.btn-cerrar {
+    background: none;
+    border: none;
+    font-size: var(--font-size-2xl);
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    color: var(--color-gray-medium);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-all);
 }
 
-/* ------ BOTÓN DE ACCIÓN ------ */
-/* EVENTOS: Botón principal de llamada a la acción */
-.event-cta {
-    display: inline-block;
-    padding: 8px 15px;
-    background-color: #0077cc;
-    color: white;
+.btn-cerrar:hover {
+    background-color: var(--bg-medium-gray);
+    color: var(--color-dark);
+}
+
+.modal-body {
+    padding: var(--spacing-xl);
+}
+
+/* ------ CONTENIDO DEL SERMÓN COMPLETO ------ */
+.sermon-completo {
+    line-height: var(--line-height-relaxed);
+}
+
+.sermon-meta {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.sermon-meta > div {
+    color: var(--color-gray-medium);
+    font-size: var(--font-size-sm);
+}
+
+.sermon-imagen {
+    margin: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.sermon-imagen img {
+    max-width: 100%;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.sermon-descripcion blockquote {
+    background-color: var(--bg-light-gray);
+    padding: var(--spacing-lg);
+    border-left: 4px solid var(--color-primary);
+    margin: var(--spacing-lg) 0;
+    font-style: italic;
+    color: var(--color-gray-dark);
+}
+
+.sermon-descripcion ul {
+    margin: var(--spacing-lg) 0;
+    padding-left: var(--spacing-xl);
+}
+
+.sermon-descripcion li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.sermon-acciones {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: var(--spacing-md) var(--spacing-xl);
+    border: none;
+    border-radius: var(--radius-base);
+    cursor: pointer;
+    font-weight: var(--font-weight-medium);
     text-decoration: none;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    transition: var(--transition-all);
 }
 
-/* EVENTOS: Efecto hover del botón de acción */
-.event-cta:hover {
-    background-color: #005fa3;
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
 
-/* ------ DISEÑO RESPONSIVO ------ */
-/* EVENTOS: Grid responsivo - 2 columnas en tablet */
-@media (min-width: 768px) {
-    .events-grid {
-        display: grid;
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: var(--transform-hover-up);
+}
+
+.btn-secondary {
+    background-color: var(--color-gray-medium);
+    color: var(--color-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-gray-dark);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: var(--border-width) var(--border-style) var(--color-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* ------ NO RESULTS ------ */
+.no-results {
+    text-align: center;
+    padding: var(--spacing-4xl) var(--spacing-lg);
+    color: var(--color-gray-medium);
+}
+
+.no-results h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-gray-dark);
+}
+
+/* ------ BODY MODAL OPEN ------ */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ------ RESPONSIVE DESIGN PARA SERMONES ------ */
+@media (max-width: 768px) {
+    .reproductor-controles {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .progress-container {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .sermon-meta {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .sermon-acciones {
+        flex-direction: column;
+    }
+    
+    .modal-content {
+        margin: var(--spacing-lg) auto;
+    }
+    
+    .modal-header,
+    .modal-body {
+        padding: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 600px) {
+    .sermones-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-container {
+        max-width: none;
+    }
+    
+    .sermones-stats {
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        gap: var(--spacing-lg);
     }
-}
-
-/* EVENTOS: Grid responsivo - 3 columnas en desktop */
-@media (min-width: 992px) {
-    .events-grid {
-        grid-template-columns: repeat(3, 1fr);
+    
+    .stat-number {
+        font-size: var(--font-size-2xl);
     }
-}
-
-/* EVENTOS: Hero específico para página de eventos */
-.hero {
-    background-image: url('../img/eventos.jpg'); /* Imagen específica para eventos */
 }

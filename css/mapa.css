@@ -1,0 +1,231 @@
+/* ========================================
+   MAPA.CSS - Estilos específicos para página de ubicación
+   ======================================== */
+
+/* ------ ESTRUCTURA GENERAL ------ */
+.map-container {
+    padding: var(--spacing-4xl) 0;
+    background-color: var(--bg-light-gray);
+}
+
+/* ------ CONTENEDOR DEL MAPA ------ */
+#mapa {
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    margin: var(--spacing-2xl) auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    border: 3px solid var(--color-white);
+}
+
+/* ------ INFORMACIÓN DE CONTACTO ------ */
+.contact-info {
+    margin-top: var(--spacing-3xl);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-2xl);
+    background-color: var(--color-white);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-info h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.contact-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: var(--radius-sm);
+}
+
+.contact-info p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-gray);
+    line-height: var(--line-height-relaxed);
+}
+
+.contact-info p strong {
+    color: var(--color-gray-dark);
+    font-weight: var(--font-weight-medium);
+}
+
+/* ------ SECCIONES DE INFORMACIÓN ------ */
+.address, .contact {
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-base);
+    transition: var(--transition-transform);
+}
+
+.address:hover, .contact:hover {
+    transform: var(--transform-hover-up);
+}
+
+/* ------ ESTILOS PARA EL POPUP DEL MAPA ------ */
+.leaflet-popup-content-wrapper {
+    border-radius: var(--radius-md) !important;
+    padding: 0 !important;
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+    padding: var(--spacing-lg) !important;
+    font-family: var(--font-primary) !important;
+}
+
+.popup-content {
+    text-align: center;
+    color: var(--color-gray-dark);
+}
+
+.popup-content h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+}
+
+.popup-content p {
+    margin: var(--spacing-xs) 0;
+    color: var(--color-gray);
+    font-size: var(--font-size-sm);
+}
+
+/* ------ INDICADORES DE UBICACIÓN ------ */
+.location-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-2xl);
+}
+
+.location-item {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-all);
+}
+
+.location-item:hover {
+    transform: var(--transform-hover-up);
+    box-shadow: var(--shadow-xl);
+}
+
+.location-item .icon {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.location-item h4 {
+    color: var(--color-gray-dark);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+.location-item p {
+    color: var(--color-gray);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+}
+
+/* ------ RESPONSIVE DESIGN ------ */
+@media (max-width: 900px) {
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg);
+    }
+    
+    #mapa {
+        height: 400px;
+        margin: var(--spacing-lg) auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .map-container {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    #mapa {
+        height: 350px;
+        margin: var(--spacing-lg) auto;
+        border-width: 2px;
+    }
+    
+    .contact-info {
+        margin-top: var(--spacing-lg);
+        padding: var(--spacing-md);
+    }
+    
+    .location-highlights {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    #mapa {
+        height: 300px;
+        margin: var(--spacing-md) auto;
+    }
+    
+    .contact-info h3 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .address, .contact {
+        padding: var(--spacing-md);
+    }
+}
+
+/* ------ ANIMACIONES ADICIONALES ------ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-info {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.location-item {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* ------ MEJORAS VISUALES ------ */
+.map-section-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-2xl) auto;
+    color: var(--color-gray);
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+}
+
+.hero-mapa {
+    background-image: url('../img/mapa.jpg');
+    background-attachment: fixed; /* Efecto parallax */
+}

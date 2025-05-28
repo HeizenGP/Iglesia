@@ -9,46 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="../css/normalize.css">
+      <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/mapa.css">
     <script src="../js/script.js"></script>
-    
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    
-    <style>
-        /* Estilos adicionales específicos para el mapa */
-        #mapa {
-            width: 60%;
-            height: 500px;
-            margin: 20px auto; /* Cambiado de "20px 0" a "20px auto" para centrar */
-            display: block; /* Asegura que se pueda centrar con margin auto */
-        }
-        
-        .map-container {
-            padding: 80px 0;
-        }
-        
-        .contact-info {
-            margin-top: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        
-        @media (max-width: 768px) {
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .hero {
-    background-image: url('../img/mapa.jpg'); /* Imagen específica para servicios */
-}
-
-    </style>
 </head>
 <body>
     <header>
@@ -67,43 +34,63 @@
                 </ul>
             </nav>
         </div>
-    </header>
-
-    <section class="hero">
+    </header>    <section class="hero hero-mapa">
         <div class="hero-overlay">
             <h1>Nuestra Ubicación</h1>
-            <p>Visítanos y forma parte de nuestra comunidad de fe.</p>
+            <p>Visítanos y forma parte de nuestra comunidad de fe en el corazón de Tarapoto.</p>
         </div>
-    </section>
-
-    <section class="map-container">
+    </section>    <section class="map-container">
         <div class="container">
             <h2 class="section-title">¿Cómo llegar?</h2>
+            <div class="map-section-intro">
+                <p>Nuestra iglesia está ubicada en una zona accesible de Tarapoto. Te invitamos a visitarnos y ser parte de nuestra familia en la fe.</p>
+            </div>
             
             <!-- Contenedor del mapa -->
             <div id="mapa"></div>
             
+            <!-- Indicadores de ubicación -->
+            <div class="location-highlights">
+                <div class="location-item">
+                    <div class="icon">🚗</div>
+                    <h4>Fácil Acceso</h4>
+                    <p>Estacionamiento gratuito disponible</p>
+                </div>
+                <div class="location-item">
+                    <div class="icon">🏍️</div>
+                    <h4>Transporte Público</h4>
+                    <p>Mototaxis desde cualquier punto de la ciudad</p>
+                </div>
+                <div class="location-item">
+                    <div class="icon">📍</div>
+                    <h4>Ubicación Central</h4>
+                    <p>A solo 5 minutos de la Universidad Nacional de San Martín</p>
+                </div>
+            </div>
+            
             <div class="contact-info">
                 <div class="address">
                     <h3>Dirección</h3>
-                    <p>Jr. Progreso 123</p>
+                    <p><strong>Jr. Progreso 123</strong></p>
                     <p>Tarapoto, San Martín</p>
-                    <p>Perú</p>
-                    <p>CP 22000</p>
+                    <p>Perú - CP 22000</p>
                     
-                    <h3>Horarios</h3>
+                    <h3>Horarios de Servicio</h3>
                     <p><strong>Domingos:</strong> 10:00 AM y 6:00 PM</p>
                     <p><strong>Miércoles:</strong> 7:00 PM (Noche de oración)</p>
+                    <p><strong>Sábados:</strong> 7:00 PM (Jóvenes)</p>
+                    <p><strong>Viernes:</strong> 7:00 PM (Adolescentes)</p>
                 </div>
                 
                 <div class="contact">
-                    <h3>Contacto</h3>
+                    <h3>Información de Contacto</h3>
                     <p><strong>Teléfono:</strong> (+51) 995 769 424</p>
                     <p><strong>Email:</strong> info@diosnosama.org</p>
+                    <p><strong>WhatsApp:</strong> <a href="https://wa.me/+51995769424" target="_blank">Enviar mensaje</a></p>
                     
-                    <h3>Transporte</h3>
-                    <p>Estamos ubicados a 5 minutos del centro de la ciudad. Hay servicio de mototaxi disponible desde cualquier punto de Tarapoto.</p>
-                    <p>Si viene en auto propio, contamos con estacionamiento gratuito.</p>
+                    <h3>Cómo Llegar</h3>
+                    <p>Desde el centro de Tarapoto, toma Jr. Progreso hacia el norte. Nuestra iglesia se encuentra del lado derecho, fácil de identificar por nuestro letrero.</p>
+                    <p><strong>Referencia:</strong> A 2 cuadras del mercado central</p>
                 </div>
             </div>
         </div>
@@ -162,32 +149,95 @@
         </div>
     </footer>
 
-    <!-- Script para Leaflet API -->
-    <script>
+    <!-- Script para Leaflet API -->    <script>
         function iniciarMapa() {
             // Coordenadas de la iglesia
             const lat = -6.4916652;
             const lng = -76.3788718;
             
-            // Crear el mapa
-            const mapa = L.map('mapa').setView([lat, lng], 16);
+            // Crear el mapa con opciones mejoradas
+            const mapa = L.map('mapa', {
+                center: [lat, lng],
+                zoom: 16,
+                zoomControl: true,
+                scrollWheelZoom: true,
+                doubleClickZoom: true,
+                boxZoom: true,
+                keyboard: true,
+                dragging: true,
+                touchZoom: true
+            });
             
-            // Agregar las capas de OpenStreetMap
+            // Agregar las capas de OpenStreetMap con mejor atribución
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19,
+                tileSize: 256,
+                zoomOffset: 0
             }).addTo(mapa);
             
-            // Agregar un marcador
-            const marcador = L.marker([lat, lng]).addTo(mapa);
+            // Crear un ícono personalizado para la iglesia
+            const iconoIglesia = L.divIcon({
+                className: 'custom-marker',
+                html: '<div style="background-color: #0077cc; width: 30px; height: 30px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 10px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-size: 16px;">⛪</div>',
+                iconSize: [36, 36],
+                iconAnchor: [18, 18],
+                popupAnchor: [0, -18]
+            });
+            
+            // Agregar el marcador con el ícono personalizado
+            const marcador = L.marker([lat, lng], { icon: iconoIglesia }).addTo(mapa);
             
             // Agregar ventana de información
             marcador.bindPopup(`
-                <div style="text-align:center">
+                <div class="popup-content">
                     <h3>Iglesia DIOS NOS AMA</h3>
-                    <p>Jr. Progreso, Tarapoto</p>
-                    <p>Tel: (+51) 995 769 424</p>
+                    <p><strong>📍 Jr. Progreso, Tarapoto</strong></p>
+                    <p>📞 Tel: (+51) 995 769 424</p>
+                    <p>⛪ ¡Te esperamos con los brazos abiertos!</p>
                 </div>
             `).openPopup();
+            
+            // Agregar un círculo para mostrar el área de influencia
+            const circulo = L.circle([lat, lng], {
+                color: '#0077cc',
+                fillColor: 'rgba(0,119,204,0.1)',
+                fillOpacity: 0.3,
+                radius: 500,
+                weight: 2
+            }).addTo(mapa);
+            
+            // Agregar evento para centrar el mapa al hacer click en el marcador
+            marcador.on('click', function() {
+                mapa.setView([lat, lng], 17, { animate: true, duration: 1 });
+            });
+            
+            // Crear un botón personalizado para "Cómo llegar"
+            const botonDirecciones = L.control({ position: 'topright' });
+            botonDirecciones.onAdd = function(map) {
+                const div = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+                div.style.backgroundColor = '#0077cc';
+                div.style.backgroundSize = '20px 20px';
+                div.style.width = '40px';
+                div.style.height = '40px';
+                div.style.cursor = 'pointer';
+                div.style.color = 'white';
+                div.style.display = 'flex';
+                div.style.alignItems = 'center';
+                div.style.justifyContent = 'center';
+                div.style.fontSize = '16px';
+                div.innerHTML = '🗺️';
+                div.title = 'Obtener direcciones';
+                
+                div.onclick = function() {
+                    // Abrir Google Maps con direcciones
+                    const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&destination_place_id=ChIJfake_id_for_church`;
+                    window.open(url, '_blank');
+                };
+                
+                return div;
+            };
+            botonDirecciones.addTo(mapa);
         }
         
         // Iniciar mapa cuando se cargue la página
