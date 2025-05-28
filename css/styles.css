@@ -1,32 +1,62 @@
+/* ========================================
+   IGLESIA DIOS NOS AMA - STYLES.CSS
+   ========================================
+   
+   Organización del archivo:
+   1. GLOBAL STYLES - Estilos compartidos por todas las páginas
+   2. INDEX PAGE STYLES - Estilos específicos para la página principal
+   3. SERVICES PAGE STYLES - Estilos específicos para la página de servicios
+   4. SERMONES PAGE STYLES - Estilos específicos para la página de sermones
+   5. EVENTOS PAGE STYLES - Estilos específicos para la página de eventos
+   ======================================== */
+
+/* ========================================
+   1. GLOBAL STYLES
+   ======================================== */
+
+/* ------ RESET Y BASE STYLES ------ */
 /* Reset de márgenes y paddings, uso de box-sizing para incluir padding y border en el tamaño total del elemento. También se establece una fuente por defecto. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-fallback);
 }
 
 /* Estilos generales del body */
 body {
-    font-family: "Lato" sans-serif;
-    color: #050505;
-    line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
-}
-
-/* Encabezado de la página */
-header {
-    background-color: #656554;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra inferior sutil */
-    position: fixed; /* Fijo en la parte superior al hacer scroll */
-    width: 100%;
-    z-index: 1000; /* Se asegura de estar por encima de otros elementos */
+    font-family: var(--font-primary);
+    color: var(--color-dark);
+    line-height: var(--line-height-relaxed); /* Espaciado entre líneas para mejor legibilidad */
 }
 
 /* Contenedor general con un ancho máximo y centrado */
 .container {
-    max-width: 1200px;
+    max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--container-padding);
+}
+
+/* Espaciado para secciones */
+section {
+    padding: var(--spacing-4xl) 0;
+}
+
+/* Títulos de sección */
+.section-title {
+    font-size: var(--font-size-3xl);
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+/* ------ HEADER Y NAVEGACIÓN ------ */
+/* Encabezado de la página */
+header {
+    background-color: var(--color-secondary);
+    box-shadow: var(--shadow-md); /* Sombra inferior sutil */
+    position: fixed; /* Fijo en la parte superior al hacer scroll */
+    width: 100%;
+    z-index: var(--z-header); /* Se asegura de estar por encima de otros elementos */
 }
 
 /* Estilos de la barra de navegación */
@@ -42,18 +72,18 @@ header {
     display: flex;
     align-items: center;
     text-decoration: none;
-color: #333;
+    color: var(--color-gray-dark);
 }
 
 .logo-img {
-    height: 65px; /* Reducido de 80px a 65px */
-    margin-right: 10px;
+    height: var(--logo-height);
+    margin-right: var(--spacing-base);
 }
 
 .logo-text {
-font-size: 28px; /* Aumentado de 24px a 28px */
-    font-weight: bold;
-    color: black;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-black);
 }
 
 /* Lista de enlaces de navegación */
@@ -63,213 +93,49 @@ font-size: 28px; /* Aumentado de 24px a 28px */
 }
 
 .nav-links li {
-    margin-left: 30px;
+    margin-left: var(--spacing-xl);
 }
 
 /* Estilos de los enlaces de navegación */
 .nav-links a {
     text-decoration: none;
-    color: #000000;
-    font-weight: 500;
-    transition: color 0.3s;
+    color: var(--color-black);
+    font-weight: var(--font-weight-medium);
+    transition: var(--transition-color);
 }
 
 .nav-links a:hover {
-    color: #fefefe;
+    color: var(--color-off-white);
 }
 
+/* ------ SECCIONES HERO ------ */
 /* Estilos comunes para todas las secciones hero */
 .hero {
-    height: 100vh;
+    height: var(--hero-height);
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-white);
     text-align: center;
-    padding-top: 100px;
-}
-
-/* Estilos específicos solo para la página de inicio */
-.hero-home {
-    background-image: url('../img/fondo1.jpg');
+    padding-top: var(--header-height);
 }
 
 /* Título del hero */
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-lg);
 }
 
 /* Párrafo del hero */
 .hero p {
-    font-size: 20px;
+    font-size: var(--font-size-lg);
     max-width: 700px;
 }
 
-/* Espaciado para secciones */
-section {
-    padding: 80px 0;
-}
-
-/* Títulos de sección */
-.section-title {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-/* Contenido de la sección "about" (acerca de) */
-.about-content {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-}
-
-.about-text, .about-image {
-    flex: 1;
-}
-
-/* Imagen en la sección "about" */
-.about-image img {
-    width: 100%;
-    border-radius: 5px;
-}
-/* Sección de creencias */
-.beliefs {
-    background-color: #f7f7f7;
-    padding: 80px 0;
-}
-
-/* Grid de creencias */
-.beliefs-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Tarjetas de creencias individuales */
-.belief-item {
-    background-color: #fff;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-/* Encabezado de cada creencia */
-.belief-header {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-}
-
-/* Título de la creencia */
-.belief-header h3 {
-    margin: 0;
-    font-size: 20px;
-    color: #333;
-    font-weight: 500;
-}
-
-/* Botón para expandir/colapsar */
-.toggle-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    padding: 0;
-}
-
-/* Círculo que contiene el símbolo (+/-) */
-.circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #e6e6e6;
-    color: #999;
-    font-size: 20px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-/* Estado activo del item de creencia */
-.belief-item.active .circle {
-    background-color: #ccc;
-    color: #666;
-    content: "-";
-}
-
-/* Contenido oculto por defecto */
-.belief-content {
-    display: none;
-    padding: 0 20px 20px 20px;
-    line-height: 1.6;
-}
-
-/* Mostrar contenido cuando está activo */
-.belief-item.active .belief-content {
-    display: block;
-}
-
-/* Estilo para versículos bíblicos */
-.bible-verses {
-    margin-top: 15px;
-    color: #666;
-    font-style: italic;
-    font-size: 14px;
-}
-
-/* Adaptación responsiva para creencias */
-@media (max-width: 900px) {
-    .beliefs-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Grid para miembros del equipo */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-/* Estilo para cada miembro del equipo */
-.team-member {
-    text-align: center;
-}
-
-.team-member img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-}
-
-.team-member h3 {
-    margin-bottom: 10px;
-}
-
-.team-member p {
-    color: #666;
-}
-
-/* Sección de llamado a la acción */
-.cta {
-    background-color: #535c5a;
-    color: white;
-    text-align: center;
-}
-
-/* Botones */
+/* ------ BOTONES ------ */
+/* Botones globales */
 .btn {
     display: inline-block;
     background-color: white;
@@ -287,6 +153,7 @@ section {
     transform: translateY(-3px);
 }
 
+/* ------ FOOTER ------ */
 /* Pie de página */
 footer {
     background-color: #000000;
@@ -340,56 +207,7 @@ footer {
     border-top: 1px solid #555;
 }
 
-/* Estilos responsivos */
-@media (max-width: 900px) {
-    .about-content {
-        flex-direction: column;
-    }
-
-    .values-grid, .team-grid, .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .values-grid, .team-grid, .footer-content {
-        grid-template-columns: 1fr;
-    }
-
-    .nav-links {
-        display: none; /* Oculta la navegación en móviles */
-    }
-}
-
-/* Estilos extra del logo */
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #333;
-}
-
-.logo-img {
-    height: 65px; /* Reducido de 80px a 65px */
-    margin-right: 10px;
-}
-
-.logo-text {
-    font-size: 28px; /* Aumentado de 24px a 28px */
-    font-weight: bold;
-}
-
-/* Estilo del logo en pantallas pequeñas */
-@media (max-width: 768px) {
-    .logo-text {
-        display: none;
-    }
-
-    .logo-img {
-        height: 50px; /* Reducido de 60px a 50px */
-    }
-}
-
+/* ------ REDES SOCIALES ------ */
 /* Estilos para íconos sociales */
 .social-icons {
     display: flex;
@@ -415,7 +233,7 @@ footer {
     transition: transform 0.3s ease;
 }
 
-.social-icons a:over {
+.social-icons a:hover {
     transform: translateX(5px);
 }
 
@@ -427,9 +245,606 @@ footer {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Si quieres que los iconos tengan un efecto de brillo al pasar el cursor */
+/* Efecto de brillo al pasar el cursor */
 .social-icons a:hover .social-icon {
     filter: brightness(1.2);
 }
 
+/* ------ RESPONSIVE DESIGN ------ */
+/* Estilos responsivos globales */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+    }
 
+    .values-grid, .team-grid, .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-text {
+        display: none;
+    }
+
+    .logo-img {
+        height: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .values-grid, .team-grid, .footer-content {
+        grid-template-columns: 1fr;
+    }    
+    
+    .nav-links {
+        display: none; /* Oculta la navegación en móviles */
+    }
+}
+
+/* ========================================
+   2. INDEX PAGE STYLES
+   ======================================== */
+
+/* INDEX: Estilos específicos solo para la página de inicio */
+.hero-home {
+    background-image: url('../img/fondo1.jpg');
+}
+
+/* INDEX: Contenido de la sección "about" (acerca de) */
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text, .about-image {
+    flex: 1;
+}
+
+/* INDEX: Imagen en la sección "about" */
+.about-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* INDEX: Sección de creencias */
+.beliefs {
+    background-color: #f7f7f7;
+    padding: 80px 0;
+}
+
+/* INDEX: Grid de creencias */
+.beliefs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* INDEX: Tarjetas de creencias individuales */
+.belief-item {
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* INDEX: Encabezado de cada creencia */
+.belief-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+/* INDEX: Título de la creencia */
+.belief-header h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* INDEX: Botón para expandir/colapsar */
+.toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
+
+/* INDEX: Círculo que contiene el símbolo (+/-) */
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e6e6e6;
+    color: #999;
+    font-size: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* INDEX: Estado activo del item de creencia */
+.belief-item.active .circle {
+    background-color: #ccc;
+    color: #666;
+    content: "-";
+}
+
+/* INDEX: Contenido oculto por defecto */
+.belief-content {
+    display: none;
+    padding: 0 20px 20px 20px;
+    line-height: 1.6;
+}
+
+/* INDEX: Mostrar contenido cuando está activo */
+.belief-item.active .belief-content {
+    display: block;
+}
+
+/* INDEX: Estilo para versículos bíblicos */
+.bible-verses {
+    margin-top: 15px;
+    color: #666;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* INDEX: Adaptación responsiva para creencias */
+@media (max-width: 900px) {
+    .beliefs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* INDEX: Grid para miembros del equipo */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* INDEX: Estilo para cada miembro del equipo */
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.team-member h3 {
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    color: #666;
+}
+
+/* INDEX: Sección de llamado a la acción */
+.cta {
+    background-color: #535c5a;
+    color: white;
+    text-align: center;
+}
+
+/* ========================================
+   3. SERVICES PAGE STYLES
+   ======================================== */
+
+/* SERVICES: Contenido específico de la página de servicios */
+.services-content {
+    padding: 80px 0;
+}
+
+/* SERVICES: Elementos individuales de servicio */
+.service-item {
+    margin-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-item h3 {
+    margin-top: 0;
+    color: #0077cc;
+}
+
+/* SERVICES: Hero específico para página de servicios (con imagen de fondo específica) */
+.hero {
+    background-image: url('../img/servicios.jpg'); /* Imagen específica para servicios */
+}
+
+/* ========================================
+   4. SERMONES PAGE STYLES
+   ======================================== */
+
+/* ------ ESTRUCTURA GENERAL ------ */
+/* SERMONES: Contenedor principal de la página de sermones */
+.sermones-content {
+    padding: 80px 0;
+}
+
+/* ------ TÍTULOS DE SECCIÓN ------ */
+/* SERMONES: Estilo para títulos de sección con línea decorativa */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* SERMONES: Línea decorativa bajo el título */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #0077cc;
+    margin: 15px auto 0;
+}
+
+/* ------ LAYOUT GRID ------ */
+/* SERMONES: Grid responsivo para organizar las tarjetas de sermones */
+.sermones-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* SERMONES: Grid responsivo - 2 columnas en tablet */
+@media (min-width: 768px) {
+    .sermones-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* SERMONES: Grid responsivo - 3 columnas en desktop */
+@media (min-width: 992px) {
+    .sermones-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ------ TARJETAS DE SERMONES ------ */
+/* SERMONES: Tarjeta principal con efectos hover y sombras */
+.sermon-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* SERMONES: Efecto hover para elevar la tarjeta */
+.sermon-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* ------ MINIATURA Y PLAYER ------ */
+/* SERMONES: Contenedor de la imagen miniatura del sermón */
+.sermon-thumbnail {
+    position: relative;
+    height: 200px;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+
+/* SERMONES: Imagen de miniatura con ajuste de aspecto */
+.sermon-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* SERMONES: Botón de reproducción superpuesto en la miniatura */
+.sermon-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0,119,204,0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* SERMONES: Efecto hover del botón de reproducción */
+.sermon-play-btn:hover {
+    background-color: rgba(0,119,204,1);
+}
+
+/* ------ CONTENIDO DE LA TARJETA ------ */
+/* SERMONES: Contenedor del contenido textual */
+.sermon-details {
+    padding: 20px;
+}
+
+/* SERMONES: Fecha del sermón con estilo discreto */
+.sermon-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+/* SERMONES: Título principal del sermón */
+.sermon-title {
+    margin: 0 0 10px;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    color: #333;
+}
+
+/* SERMONES: Información del predicador con avatar */
+.sermon-speaker {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* SERMONES: Avatar circular del predicador */
+.sermon-speaker img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* SERMONES: Nombre del predicador */
+.sermon-speaker span {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* SERMONES: Extracto o descripción breve del sermón */
+.sermon-excerpt {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ------ ACCIONES Y BOTONES ------ */
+/* SERMONES: Contenedor de botones de acción */
+.sermon-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* SERMONES: Botón principal para escuchar/ver el sermón */
+.sermon-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #0077cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+/* SERMONES: Efecto hover del botón principal */
+.sermon-link:hover {
+    background-color: #005fa3;
+}
+
+/* SERMONES: Botón secundario para descargar */
+.sermon-download {
+    background-color: transparent;
+    color: #0077cc;
+    border: 1px solid #0077cc;
+}
+
+/* SERMONES: Efecto hover del botón de descarga */
+.sermon-download:hover {
+    background-color: rgba(0,119,204,0.1);
+}
+
+/* ------ CATEGORÍAS Y FILTROS ------ */
+/* SERMONES: Sección de categorías para filtrar sermones */
+.sermones-categorias {
+    margin-top: 60px;
+    text-align: center;
+}
+
+/* SERMONES: Título de la sección de categorías */
+.sermones-categorias h3 {
+    margin-bottom: 20px;
+}
+
+/* SERMONES: Contenedor flex para las etiquetas de categorías */
+.categorias-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* SERMONES: Estilo individual para cada etiqueta de categoría */
+.categoria-tag {
+    display: inline-block;
+    padding: 6px 15px;
+    background-color: #f0f0f0;
+    color: #555;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+/* SERMONES: Efecto hover de las etiquetas de categoría */
+.categoria-tag:hover {
+    background-color: #0077cc;
+    color: white;
+}
+
+/* ------ REPRODUCTOR DE AUDIO ------ */
+/* SERMONES: Reproductor de audio integrado (opcional) */
+.sermon-audio {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* SERMONES: Hero específico para página de sermones */
+.hero {
+    background-image: url('../img/sermones.jpg'); /* Imagen específica para sermones */
+}
+
+/* ========================================
+   5. EVENTOS PAGE STYLES
+   ======================================== */
+
+/* ------ ESTRUCTURA GENERAL ------ */
+/* EVENTOS: Contenedor principal de la página de eventos */
+.events-content {
+    padding: 80px 0;
+}
+
+/* ------ TARJETAS DE EVENTOS ------ */
+/* EVENTOS: Tarjeta individual de evento con sombra y bordes redondeados */
+.event-card {
+    margin-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+/* ------ IMAGEN DEL EVENTO ------ */
+/* EVENTOS: Contenedor de la imagen principal del evento */
+.event-card .event-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+/* EVENTOS: Imagen del evento con efecto zoom al hover */
+.event-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* EVENTOS: Efecto hover para agrandar ligeramente la imagen */
+.event-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ------ CONTENIDO DE LA TARJETA ------ */
+/* EVENTOS: Contenedor del contenido textual del evento */
+.event-details {
+    padding: 20px;
+}
+
+/* EVENTOS: Etiqueta de fecha destacada */
+.event-date {
+    display: inline-block;
+    background-color: #0077cc;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* EVENTOS: Título principal del evento */
+.event-card h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.4rem;
+}
+
+/* ------ INFORMACIÓN ADICIONAL ------ */
+/* EVENTOS: Ubicación del evento con ícono de mapa */
+.event-location {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    color: #666;
+}
+
+/* EVENTOS: Ícono de ubicación antes del texto */
+.event-location::before {
+    content: "📍";
+    margin-right: 5px;
+}
+
+/* EVENTOS: Hora del evento con ícono de reloj */
+.event-time {
+    display: flex;
+    align-items: center;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* EVENTOS: Ícono de reloj antes del texto */
+.event-time::before {
+    content: "🕒";
+    margin-right: 5px;
+}
+
+.event-description {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* ------ BOTÓN DE ACCIÓN ------ */
+/* EVENTOS: Botón principal de llamada a la acción */
+.event-cta {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #0077cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+/* EVENTOS: Efecto hover del botón de acción */
+.event-cta:hover {
+    background-color: #005fa3;
+}
+
+/* ------ DISEÑO RESPONSIVO ------ */
+/* EVENTOS: Grid responsivo - 2 columnas en tablet */
+@media (min-width: 768px) {
+    .events-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* EVENTOS: Grid responsivo - 3 columnas en desktop */
+@media (min-width: 992px) {
+    .events-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* EVENTOS: Hero específico para página de eventos */
+.hero {
+    background-image: url('../img/eventos.jpg'); /* Imagen específica para eventos */
+}
