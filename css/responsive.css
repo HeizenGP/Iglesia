@@ -1,0 +1,633 @@
+/* ========================================
+   IGLESIA DIOS NOS AMA - RESPONSIVE.CSS
+   ========================================
+   
+   Sistema de diseño responsivo profesional que garantiza
+   una experiencia óptima en todos los dispositivos.
+   
+   Organización:
+   1. UTILITY CLASSES - Clases utilitarias responsivas
+   2. MOBILE NAVIGATION - Navegación móvil profesional
+   3. TABLET BREAKPOINT - Adaptaciones para tablets
+   4. MOBILE BREAKPOINT - Adaptaciones para móviles
+   5. SMALL MOBILE - Dispositivos muy pequeños
+   6. LANDSCAPE ORIENTATION - Orientación horizontal
+   7. PRINT STYLES - Estilos para impresión
+   ======================================== */
+
+/* ========================================
+   1. UTILITY CLASSES
+   ======================================== */
+
+/* Visibility utilities for responsive design */
+.hidden { display: none !important; }
+.visible { display: block !important; }
+
+.mobile-only { display: none; }
+.desktop-only { display: block; }
+
+/* Responsive spacing utilities */
+.spacing-mobile { padding: var(--spacing-md); }
+.spacing-tablet { padding: var(--spacing-lg); }
+.spacing-desktop { padding: var(--spacing-xl); }
+
+/* ========================================
+   2. MOBILE NAVIGATION SYSTEM
+   ======================================== */
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    z-index: 1001;
+    position: relative;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-toggle:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Hamburger icon styling */
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff; /* Forzar color blanco */
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff; /* Forzar color blanco */
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+/* Hamburger animation when menu is open */
+.mobile-menu-open .hamburger {
+    background-color: transparent;
+}
+
+.mobile-menu-open .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+    background-color: #ffffff;
+}
+
+.mobile-menu-open .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+    background-color: #ffffff;
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ========================================
+   3. LARGE TABLET BREAKPOINT (900px and down)
+   ======================================== */
+@media (max-width: 900px) {
+    /* Container adjustments */
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+    
+    /* Grid adjustments */
+    .beliefs-grid,
+    .services-grid,
+    .eventos-grid,
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    /* Hero adjustments */
+    .hero h1 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .hero p {
+        font-size: var(--font-size-base);
+        max-width: 90%;
+    }
+    
+    /* About content stack */
+    .about-content {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+    
+    /* Team grid adjustment */
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Services adjustments */
+    .service-item {
+        padding: var(--spacing-lg);
+    }
+    
+    /* Sermon cards adjustment */
+    .sermon-card {
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+/* ========================================
+   4. TABLET BREAKPOINT (768px and down)
+   ======================================== */
+@media (max-width: 768px) {
+    /* Show mobile navigation */
+    .mobile-menu-toggle {
+        display: block;
+    }    /* Hide desktop navigation */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: linear-gradient(135deg, rgba(101, 101, 84, 0.98), rgba(85, 85, 70, 0.98)); /* Gradiente más contrastado */
+        backdrop-filter: blur(10px); /* Efecto blur moderno */
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 30px 30px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.4);
+        border-left: 2px solid rgba(255, 255, 255, 0.2);
+        overflow-y: auto;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        width: 100%;
+        margin-bottom: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        list-style: none;
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 20px 15px;
+        color: #ffffff !important; /* Forzar color blanco */
+        font-size: 18px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        position: relative;
+        margin-bottom: 5px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Sombra para mejor legibilidad */
+    }
+    
+    .nav-links a:hover,
+    .nav-links a:focus {
+        color: #ffffff !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
+        transform: translateX(8px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .nav-links a:active {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
+        transform: translateX(4px);
+    }
+    
+    /* Logo adjustments */
+    .logo-text {
+        display: none;
+    }
+    
+    .logo-img {
+        height: 45px;
+    }
+    
+    /* Container adjustments */
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    /* Hero adjustments */
+    .hero {
+        height: 70vh;
+        min-height: 500px;
+    }
+    
+    .hero h1 {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    /* Section padding */
+    section {
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    /* Typography adjustments */
+    .section-title {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-2xl);
+    }
+    
+    /* Grid adjustments - single column */
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Beliefs grid adjustment */
+    .beliefs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer adjustments */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    /* Button adjustments */
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: var(--font-size-sm);
+    }
+    
+    /* Show mobile overlay when menu is active */
+    .mobile-menu-overlay {
+        display: block;
+    }
+}
+
+/* ========================================
+   5. MOBILE BREAKPOINT (600px and down)
+   ======================================== */
+@media (max-width: 600px) {
+    /* Container tighter padding */
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    /* Navigation width adjustment */
+    .nav-links {
+        width: 100%;
+        right: -100%;
+    }
+    
+    /* Hero adjustments */
+    .hero {
+        height: 60vh;
+        min-height: 400px;
+        padding-top: calc(var(--header-height) + var(--spacing-md));
+    }
+    
+    .hero h1 {
+        font-size: var(--font-size-xl);
+        line-height: 1.2;
+    }
+    
+    .hero p {
+        font-size: var(--font-size-sm);
+        margin-top: var(--spacing-sm);
+    }
+    
+    /* All grids to single column */
+    .services-grid,
+    .eventos-grid,
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    /* Section padding reduction */
+    section {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    /* Typography adjustments */
+    .section-title {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    /* Card adjustments */
+    .service-item,
+    .evento-item,
+    .sermon-card {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    /* About content adjustments */
+    .about-content {
+        gap: var(--spacing-lg);
+    }
+    
+    /* Footer adjustments */
+    .footer-content {
+        text-align: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    /* Form adjustments */
+    input, textarea, select {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* ========================================
+   6. SMALL MOBILE BREAKPOINT (480px and down)
+   ======================================== */
+@media (max-width: 480px) {
+    /* Very tight spacing */
+    .container {
+        padding: 0 var(--spacing-xs);
+    }
+    
+    /* Hero further adjustments */
+    .hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .hero h1 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .hero p {
+        font-size: var(--font-size-xs);
+    }
+    
+    /* Section padding minimal */
+    section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    /* Typography minimal */
+    .section-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    /* Navigation adjustments */
+    .nav-links {
+        padding: 60px 20px 20px;
+    }
+    
+    .nav-links a {
+        font-size: var(--font-size-base);
+    }
+    
+    /* Logo minimal */
+    .logo-img {
+        height: 35px;
+    }
+    
+    /* Button adjustments */
+    .btn {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: var(--font-size-xs);
+        width: 100%;
+        text-align: center;
+        margin-top: var(--spacing-md);
+    }
+    
+    /* Card minimal spacing */
+    .service-item,
+    .evento-item,
+    .sermon-card {
+        padding: var(--spacing-sm);
+    }
+    
+    /* Footer minimal */
+    .footer-column h3 {
+        font-size: var(--font-size-base);
+    }
+    
+    .footer-column a,
+    .footer-column p {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* ========================================
+   7. LANDSCAPE ORIENTATION ADJUSTMENTS
+   ======================================== */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .hero {
+        height: 100vh;
+        min-height: auto;
+    }
+    
+    .nav-links {
+        height: 100vh;
+        overflow-y: auto;
+    }
+}
+
+/* ========================================
+   8. TOUCH AND INTERACTION IMPROVEMENTS
+   ======================================== */
+@media (hover: none) and (pointer: coarse) {
+    /* Touch device optimizations */
+    .nav-links a,
+    .btn,
+    .social-icons a {
+        min-height: 44px; /* Apple's recommended touch target size */
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .service-item:hover,
+    .evento-item:hover,
+    .sermon-card:hover {
+        transform: none;
+    }
+    
+    /* Enhanced touch feedback */
+    .btn:active {
+        transform: scale(0.98);
+    }
+    
+    .nav-links a:active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* ========================================
+   9. HIGH DPI DISPLAYS
+   ======================================== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Ensure crisp borders and shadows on high DPI displays */
+    .service-item,
+    .evento-item,
+    .sermon-card,
+    .belief-item {
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Optimize image rendering */
+    img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+    }
+}
+
+/* ========================================
+   10. PRINT STYLES
+   ======================================== */
+@media print {
+    /* Hide navigation and interactive elements */
+    header,
+    .mobile-menu-toggle,
+    .mobile-menu-overlay,
+    .btn,
+    footer {
+        display: none !important;
+    }
+    
+    /* Optimize for print */
+    * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+    
+    .container {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .hero {
+        height: auto;
+        padding: 20px 0;
+    }
+    
+    section {
+        page-break-inside: avoid;
+        padding: 10px 0;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+}
+
+/* ========================================
+   11. ACCESSIBILITY IMPROVEMENTS
+   ======================================== */
+
+/* Ensure menu is always visible when active */
+@media (max-width: 768px) {
+    .nav-links.active {
+        display: flex !important;
+        visibility: visible !important;
+    }
+    
+    .mobile-menu-overlay {
+        display: block;
+    }
+    
+    .mobile-menu-toggle {
+        display: block !important;
+    }
+    
+    /* Ensure text is readable */
+    .nav-links a {
+        color: #ffffff !important;
+        background: transparent;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Prevent body scroll when menu is open */
+    body.mobile-menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+}
+
+/* Focus indicators for keyboard navigation */
+@media (prefers-reduced-motion: no-preference) {
+    .nav-links a:focus,
+    .btn:focus,
+    .mobile-menu-toggle:focus {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .nav-links a,
+    .btn {
+        border: 2px solid;
+    }
+    
+    .service-item,
+    .evento-item,
+    .sermon-card {
+        border: 1px solid;
+    }
+}

@@ -8,29 +8,36 @@
     <link rel="icon" href="../img/cruz.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="../css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <script src="../js/script.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <nav class="navbar">
+        <div class="container">            <nav class="navbar">
                 <a href="index.html" class="logo">
                     <img src="../img/logo.png" alt="logo" class="logo-img">
                     <span class="logo-text"></span>
                 </a>
-                <ul class="nav-links">
+                
+                <!-- Menú hamburguesa para móviles -->
+                <button class="mobile-menu-toggle" aria-label="Abrir menú">
+                    <div class="hamburger"></div>
+                </button>
+                  <ul class="nav-links">
                     <li><a href="index.html#acerca-de">Acerca de</a></li>
                     <li><a href="servicios.html">Servicios</a></li>
                     <li><a href="eventos.html">Eventos</a></li>
                     <li><a href="sermones.html">Sermones</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="mapa.html">Biblioteca</a></li>
                 </ul>
             </nav>
         </div>
+        
+        <!-- Overlay para cerrar el menú móvil -->
+        <div class="mobile-menu-overlay"></div>
     </header>
 
     <!-- Sección de portada para la página de eventos -->
