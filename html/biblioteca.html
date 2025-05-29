@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Biblioteca - Iglesia DIOS NOS AMA</title>
+    <link rel="icon" href="../img/cruz.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <!-- jQuery -->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="../img/logo.png" alt="logo" class="logo-img">
+                    <span class="logo-text"></span>
+                </a>
+                
+                <!-- Mobile menu toggle button -->
+                <button class="mobile-menu-toggle" aria-label="Abrir menú de navegación">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html#acerca-de">Acerca de</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="sermones.html">Sermones</a></li>
+                    <li><a href="biblioteca.html">Biblioteca</a></li>
+                </ul>
+                
+                <!-- Mobile menu overlay -->
+                <div class="mobile-menu-overlay"></div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección de portada para la página de biblioteca -->
+    <section class="hero biblioteca-hero">
+        <div class="hero-overlay">
+            <h1>Biblioteca Digital</h1>
+            <p>Accede a nuestra colección de recursos espirituales, libros cristianos y materiales de estudio bíblico.</p>
+        </div>
+    </section>
+
+    <!-- Contenido principal de la biblioteca -->
+    <section class="biblioteca-content">
+        <div class="container">
+            <div class="biblioteca-intro">
+                <h2 class="section-title">Recursos Espirituales</h2>
+                <p class="biblioteca-description">
+                    Nuestra biblioteca digital está diseñada para apoyar tu crecimiento espiritual con una amplia selección 
+                    de recursos cristianos, estudios bíblicos y materiales educativos cuidadosamente seleccionados.
+                </p>
+            </div>
+
+            <!-- Categorías de la biblioteca -->
+            <div class="biblioteca-categories">
+                <div class="category-item">
+                    <div class="category-icon">
+                        <i class="icon-book"></i>
+                    </div>
+                    <h3>Libros Cristianos</h3>
+                    <p>Colección de libros de autores cristianos reconocidos para fortalecer tu fe y conocimiento bíblico.</p>
+                    <div class="category-count">25 recursos</div>
+                </div>
+
+                <div class="category-item">
+                    <div class="category-icon">
+                        <i class="icon-study"></i>
+                    </div>
+                    <h3>Estudios Bíblicos</h3>
+                    <p>Guías detalladas de estudio bíblico para profundizar en la Palabra de Dios individual o en grupo.</p>
+                    <div class="category-count">18 estudios</div>
+                </div>
+
+                <div class="category-item">
+                    <div class="category-icon">
+                        <i class="icon-devotional"></i>
+                    </div>
+                    <h3>Devocionales</h3>
+                    <p>Lecturas diarias para inspirar y guiar tu tiempo personal con Dios cada día del año.</p>
+                    <div class="category-count">365 devocionales</div>
+                </div>
+
+                <div class="category-item">
+                    <div class="category-icon">
+                        <i class="icon-audio"></i>
+                    </div>
+                    <h3>Audio Libros</h3>
+                    <p>Escucha libros cristianos y estudios bíblicos narrados para tu tiempo de viaje o descanso.</p>
+                    <div class="category-count">12 audios</div>
+                </div>
+
+                <div class="category-item">
+                    <div class="category-icon">
+                        <i class="icon-youth"></i>
+                    </div>
+                    <h3>Recursos Juveniles</h3>
+                    <p>Materiales especialmente diseñados para jóvenes y adolescentes en su caminar cristiano.</p>
+                    <div class="category-count">15 recursos</div>
+                </div>
+
+                <div class="category-item">
+                    <div class="category-icon">
+                        <i class="icon-family"></i>
+                    </div>
+                    <h3>Vida Familiar</h3>
+                    <p>Guías y recursos para fortalecer la vida familiar desde una perspectiva cristiana.</p>
+                    <div class="category-count">10 recursos</div>
+                </div>
+            </div>
+
+            <!-- Recursos destacados -->
+            <div class="biblioteca-featured">
+                <h2 class="section-title">Recursos Destacados</h2>
+                <div class="featured-resources">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <div class="resource-placeholder">📖</div>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Guía de Estudio: Evangelio de Juan</h3>
+                            <p class="resource-author">Por: Pastor Juan Martínez</p>
+                            <p class="resource-description">
+                                Un estudio profundo y práctico del Evangelio de Juan, diseñado para 12 semanas de estudio personal o grupal.
+                            </p>
+                            <button class="btn btn-primary">Descargar PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <div class="resource-placeholder">🎵</div>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Devocional: 30 Días con Jesús</h3>
+                            <p class="resource-author">Por: María González</p>
+                            <p class="resource-description">
+                                Devocional de 30 días para conocer más intimamente a Jesús a través de Sus enseñanzas y ejemplo.
+                            </p>
+                            <button class="btn btn-primary">Leer Online</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <div class="resource-placeholder">🎧</div>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Audio: Principios de Oración</h3>
+                            <p class="resource-author">Por: Pastor Carlos Ruiz</p>
+                            <p class="resource-description">
+                                Serie de audio sobre los fundamentos bíblicos de la oración y cómo desarrollar una vida de oración efectiva.
+                            </p>
+                            <button class="btn btn-primary">Escuchar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Búsqueda y filtros -->
+            <div class="biblioteca-search">
+                <h2 class="section-title">Buscar Recursos</h2>
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar por título, autor o tema..." class="search-input">
+                        <button class="search-btn">🔍</button>
+                    </div>
+                    <div class="search-filters">
+                        <select class="filter-select">
+                            <option value="">Todas las categorías</option>
+                            <option value="libros">Libros Cristianos</option>
+                            <option value="estudios">Estudios Bíblicos</option>
+                            <option value="devocionales">Devocionales</option>
+                            <option value="audio">Audio Libros</option>
+                            <option value="juveniles">Recursos Juveniles</option>
+                            <option value="familia">Vida Familiar</option>
+                        </select>
+                        <select class="filter-select">
+                            <option value="">Todos los formatos</option>
+                            <option value="pdf">PDF</option>
+                            <option value="audio">Audio</option>
+                            <option value="video">Video</option>
+                            <option value="online">Lectura Online</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información de acceso -->
+            <div class="biblioteca-access">
+                <div class="access-info">
+                    <h3>¿Cómo acceder a los recursos?</h3>
+                    <ul>
+                        <li>Todos los recursos básicos son de acceso libre</li>
+                        <li>Para recursos premium, regístrate como miembro de la iglesia</li>
+                        <li>Puedes descargar PDFs o acceder a contenido online</li>
+                        <li>Los recursos de audio están disponibles para streaming</li>
+                    </ul>
+                    <button class="btn btn-secondary">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Iglesia DIOS NOS AMA</h3>
+                    <p>Jr Progreso<br>Ciudad, Tarapoto <br>Teléfono: (+51) 995 769 424<br>Email: info@Diosnosama.org</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li>Domingos: 10:00 AM y 6:00 PM</li>
+                        <li>Noche de oración: Miércoles 7:00 PM</li>
+                        <li>Jóvenes: Sábado 7:00 PM</li>
+                        <li>Adolescentes: Viernes 7:00 PM</li>
+                        <li>Estudio bíblico: Domingo 8:00 AM</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html#acerca-de">Acerca de</a></li>
+                        <li><a href="eventos.html">Eventos</a></li>
+                        <li><a href="sermones.html">Sermones</a></li>
+                        <li><a href="biblioteca.html">Biblioteca</a></li>
+                        <li><a href="#">Donaciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Conéctate</h3>
+                    <div class="social-icons">
+                        <ul>
+                            <li><a href="https://www.facebook.com/profile.php?id=100069497589407" target="_blank" title="Facebook">
+                                <img src="../img/facebook.png" alt="Facebook" class="social-icon">Facebook
+                                </a></li>
+                            <li><a href="https://www.instagram.com/diosnosama.tarapoto/" target="_blank" title="Instagram">
+                                <img src="../img/instagram.png" alt="Instagram" class="social-icon">Instagram
+                                </a></li>
+                            <li><a href="" target="_blank" title="YouTube">
+                                <img src="../img/youtube.png" alt="YouTube" class="social-icon">YouTube
+                                </a></li>
+                            <li><a href="https://wa.me/+51995769424?text=Hola%20te%20estoy%20contactando%20desde%20mi%20web" target="_blank" title="WhatsApp">
+                                <img src="../img/whatsapp.png" alt="WhatsApp" class="social-icon">WhatsApp
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Iglesia Comunitaria DIOS NOS AMA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
