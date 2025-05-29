@@ -535,3 +535,298 @@ $(document).ready(function() {
 
     console.log('🎵 Sistema de sermones cargado correctamente');
 });
+
+// ========================================
+// FUNCIONALIDAD DE BÚSQUEDA Y FILTROS AVANZADOS
+// ========================================
+
+// Variables para filtros
+let filtroActual = {
+    categoria: 'todos',
+    predicador: '',
+    fecha: '',
+    duracion: '',
+    busqueda: ''
+};
+
+// Función para aplicar todos los filtros
+function aplicarFiltros() {
+    let sermonesToDisplay = [...sermones];
+    let resultCount = 0;
+    
+    // Filtrar por categoría
+    if (filtroActual.categoria !== 'todos') {
+        sermonesToDisplay = sermonesToDisplay.filter(sermon => 
+            sermon.categoria === filtroActual.categoria
+        );
+    }
+    
+    // Filtrar por predicador
+    if (filtroActual.predicador) {
+        sermonesToDisplay = sermonesToDisplay.filter(sermon => 
+            sermon.predicador.toLowerCase().includes(filtroActual.predicador.toLowerCase())
+        );
+    }
+    
+    // Filtrar por fecha
+    if (filtroActual.fecha) {
+        const ahora = new Date();
+        sermonesToDisplay = sermonesToDisplay.filter(sermon => {
+            const fechaSermon = new Date(sermon.fecha);
+            
+            switch(filtroActual.fecha) {
+                case 'ultima-semana':
+                    return (ahora - fechaSermon) <= (7 * 24 * 60 * 60 * 1000);
+                case 'ultimo-mes':
+                    return (ahora - fechaSermon) <= (30 * 24 * 60 * 60 * 1000);
+                case 'ultimos-3-meses':
+                    return (ahora - fechaSermon) <= (90 * 24 * 60 * 60 * 1000);
+                case 'este-año':
+                    return fechaSermon.getFullYear() === ahora.getFullYear();
+                default:
+                    return true;
+            }
+        });
+    }
+    
+    // Filtrar por duración
+    if (filtroActual.duracion) {
+        sermonesToDisplay = sermonesToDisplay.filter(sermon => {
+            const duracionMin = parseInt(sermon.duracion);
+            
+            switch(filtroActual.duracion) {
+                case 'corto':
+                    return duracionMin < 30;
+                case 'medio':
+                    return duracionMin >= 30 && duracionMin <= 45;
+                case 'largo':
+                    return duracionMin > 45;
+                default:
+                    return true;
+            }
+        });
+    }
+    
+    // Filtrar por búsqueda de texto
+    if (filtroActual.busqueda.trim()) {
+        const textoBusqueda = filtroActual.busqueda.toLowerCase().trim();
+        sermonesToDisplay = sermonesToDisplay.filter(sermon => 
+            sermon.titulo.toLowerCase().includes(textoBusqueda) ||
+            sermon.predicador.toLowerCase().includes(textoBusqueda) ||
+            sermon.extracto.toLowerCase().includes(textoBusqueda) ||
+            sermon.categoria.toLowerCase().includes(textoBusqueda)
+        );
+    }
+    
+    // Actualizar contador de resultados
+    resultCount = sermonesToDisplay.length;
+    actualizarContadorResultados(resultCount);
+    
+    // Mostrar sermones filtrados
+    mostrarSermones(sermonesToDisplay);
+    
+    return sermonesToDisplay;
+}
+
+// Función para actualizar contador de resultados
+function actualizarContadorResultados(count) {
+    const resultsInfo = $('#results-info');
+    const resultsCount = $('#results-count');
+    
+    if (count === sermones.length) {
+        resultsInfo.hide();
+    } else {
+        resultsCount.text(count);
+        resultsInfo.show().hide().fadeIn(300);
+    }
+}
+
+// Función para mostrar/ocultar mensaje de "sin resultados"
+function toggleNoResultsMessage(show) {
+    const noResults = $('#no-results');
+    const sermonesGrid = $('#sermones-grid .sermon-card');
+    
+    if (show && sermonesGrid.length === 0) {
+        noResults.fadeIn(300);
+    } else {
+        noResults.hide();
+    }
+}
+
+// ========================================
+// EVENT LISTENERS PARA FILTROS
+// ========================================
+
+// Búsqueda en tiempo real
+$('#buscador-sermones').on('input', function() {
+    filtroActual.busqueda = $(this).val();
+    aplicarFiltros();
+});
+
+// Filtro por predicador
+$('#filter-predicador').on('change', function() {
+    filtroActual.predicador = $(this).val();
+    aplicarFiltros();
+});
+
+// Filtro por fecha
+$('#filter-fecha').on('change', function() {
+    filtroActual.fecha = $(this).val();
+    aplicarFiltros();
+});
+
+// Filtro por duración
+$('#filter-duracion').on('change', function() {
+    filtroActual.duracion = $(this).val();
+    aplicarFiltros();
+});
+
+// Limpiar todos los filtros
+$('#clear-filters').on('click', function(e) {
+    e.preventDefault();
+    
+    // Resetear filtros
+    filtroActual = {
+        categoria: 'todos',
+        predicador: '',
+        fecha: '',
+        duracion: '',
+        busqueda: ''
+    };
+    
+    // Resetear campos del formulario
+    $('#buscador-sermones').val('');
+    $('#filter-predicador').val('');
+    $('#filter-fecha').val('');
+    $('#filter-duracion').val('');
+    
+    // Resetear categorías
+    $('.categoria-tag').removeClass('active');
+    $('.categoria-tag[data-categoria="todos"]').addClass('active');
+    
+    // Aplicar filtros (mostrar todos)
+    aplicarFiltros();
+    
+    // Efecto visual
+    $(this).addClass('clicked');
+    setTimeout(() => {
+        $(this).removeClass('clicked');
+    }, 200);
+});
+
+// ========================================
+// MEJORAR FILTROS POR CATEGORÍA
+// ========================================
+
+// Event listener mejorado para categorías
+$('.categoria-tag').on('click', function(e) {
+    e.preventDefault();
+    
+    // Remover clase active de todas las categorías
+    $('.categoria-tag').removeClass('active');
+    
+    // Añadir clase active a la categoría seleccionada
+    $(this).addClass('active');
+    
+    // Actualizar filtro
+    filtroActual.categoria = $(this).data('categoria');
+    
+    // Aplicar filtros
+    aplicarFiltros();
+    
+    // Efecto visual de selección
+    $(this).addClass('clicked');
+    setTimeout(() => {
+        $(this).removeClass('clicked');
+    }, 300);
+});
+
+// ========================================
+// FUNCIÓN MEJORADA PARA MOSTRAR SERMONES
+// ========================================
+
+function mostrarSermones(sermonesArray) {
+    const grid = $('#sermones-grid');
+    const loading = $('#loading-sermones');
+    
+    // Limpiar grid actual (excepto loading y no-results)
+    grid.find('.sermon-card').remove();
+    
+    if (sermonesArray.length === 0) {
+        loading.hide();
+        toggleNoResultsMessage(true);
+        return;
+    }
+    
+    toggleNoResultsMessage(false);
+    
+    // Generar HTML para cada sermón
+    sermonesArray.forEach((sermon, index) => {
+        const sermonCard = `
+            <div class="sermon-card" data-categoria="${sermon.categoria}" data-index="${index}">
+                <div class="sermon-thumbnail">
+                    <img src="${sermon.imagen}" alt="${sermon.titulo}" loading="lazy">
+                    <div class="sermon-play-btn" data-audio="${sermon.audio}">
+                        <i class="fas fa-play"></i> ▶️
+                    </div>
+                    <div class="sermon-category-badge">${obtenerNombreCategoria(sermon.categoria)}</div>
+                </div>
+                <div class="sermon-details">
+                    <div class="sermon-date">${formatearFecha(sermon.fecha)}</div>
+                    <h3 class="sermon-title">${sermon.titulo}</h3>
+                    <div class="sermon-speaker">
+                        <img src="../img/logo.png" alt="Avatar" loading="lazy">
+                        <span>${sermon.predicador}</span>
+                    </div>
+                    <p class="sermon-excerpt">${sermon.extracto}</p>
+                    <div class="sermon-meta">
+                        <span class="sermon-duration">⏱️ ${sermon.duracion}</span>
+                        <span class="sermon-verse">${sermon.versiculo ? sermon.versiculo.split(' -')[0] : ''}</span>
+                    </div>
+                    <div class="sermon-actions">
+                        <a href="#" class="sermon-link btn-escuchar" data-sermon-id="${sermon.id}">
+                            🎧 Escuchar
+                        </a>
+                        <a href="#" class="sermon-download" data-sermon-id="${sermon.id}">
+                            💾 Descargar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Añadir con animación
+        const $card = $(sermonCard).hide();
+        grid.append($card);
+        $card.delay(index * 100).fadeIn(400);
+    });
+    
+    // Ocultar loading
+    loading.hide();
+}
+
+// Función para obtener nombre legible de categoría
+function obtenerNombreCategoria(categoria) {
+    const categorias = {
+        'fe': 'Fe',
+        'familia': 'Familia',
+        'oracion': 'Oración',
+        'evangelio': 'Evangelio',
+        'juventud': 'Juventud',
+        'crecimiento': 'Crecimiento',
+        'servicio': 'Servicio'
+    };
+    return categorias[categoria] || categoria;
+}
+
+// Función para formatear fecha
+function formatearFecha(fechaString) {
+    const fecha = new Date(fechaString);
+    const opciones = { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        timeZone: 'UTC'
+    };
+    return fecha.toLocaleDateString('es-ES', opciones);
+}

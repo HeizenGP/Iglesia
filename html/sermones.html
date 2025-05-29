@@ -50,36 +50,100 @@
         </div>
     </section>    <!-- Contenido específico de la página de sermones -->
     <section class="sermones-content">
-        <div class="container">
-            <!-- Barra de búsqueda y filtros -->
+        <div class="container">            <!-- Barra de búsqueda y filtros -->
             <div class="sermones-header">
                 <h2 class="section-title">Sermones y Enseñanzas</h2>
                 <div class="sermones-controls">
                     <div class="search-container">
                         <input type="text" id="buscador-sermones" placeholder="🔍 Buscar sermones por título, predicador o tema..." class="search-input">
                     </div>
+                    
+                    <!-- Filtros avanzados -->
+                    <div class="advanced-filters">
+                        <div class="filters-row">
+                            <div class="filter-group">
+                                <label class="filter-label">Predicador</label>
+                                <select class="filter-select" id="filter-predicador">
+                                    <option value="">Todos los predicadores</option>
+                                    <option value="pastor-juan">Pastor Juan Martínez</option>
+                                    <option value="pastor-maria">Pastora María González</option>
+                                    <option value="pastor-carlos">Pastor Carlos Ruiz</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">Fecha</label>
+                                <select class="filter-select" id="filter-fecha">
+                                    <option value="">Todas las fechas</option>
+                                    <option value="ultima-semana">Última semana</option>
+                                    <option value="ultimo-mes">Último mes</option>
+                                    <option value="ultimos-3-meses">Últimos 3 meses</option>
+                                    <option value="este-año">Este año</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">Duración</label>
+                                <select class="filter-select" id="filter-duracion">
+                                    <option value="">Cualquier duración</option>
+                                    <option value="corto">Corto (< 30 min)</option>
+                                    <option value="medio">Medio (30-45 min)</option>
+                                    <option value="largo">Largo (> 45 min)</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">&nbsp;</label>
+                                <button class="clear-filters" id="clear-filters">🗑️ Limpiar filtros</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Información de resultados -->
+                <div class="search-results-info" id="results-info" style="display: none;">
+                    Mostrando <span class="search-results-count" id="results-count">0</span> sermones
                 </div>
             </div>
-            
-            <!-- Grid de sermones (se llena dinámicamente con jQuery) -->
-            <div class="sermones-grid">
+              <!-- Grid de sermones (se llena dinámicamente con jQuery) -->
+            <div class="sermones-grid" id="sermones-grid">
                 <!-- Las tarjetas se generan dinámicamente con JavaScript -->
-                <div class="loading-sermones">
+                <div class="loading-sermones" id="loading-sermones">
                     <div class="spinner"></div>
                     <p>Cargando sermones...</p>
                 </div>
+                
+                <!-- Mensaje cuando no hay resultados -->
+                <div class="no-results" id="no-results" style="display: none;">
+                    <h3>🔍 No se encontraron sermones</h3>
+                    <p>Intenta cambiar los criterios de búsqueda o explorar diferentes categorías.</p>
+                </div>
             </div>
-            
-            <!-- Filtros por categorías -->
+              <!-- Filtros por categorías -->
             <div class="sermones-categorias">
-                <h3>Explorar por Categoría</h3>
+                <h3>📚 Explorar por Categoría</h3>
                 <div class="categorias-tags">
-                    <a href="#" class="categoria-tag active" data-categoria="todos">Todos</a>
-                    <a href="#" class="categoria-tag" data-categoria="fe">Fe</a>
-                    <a href="#" class="categoria-tag" data-categoria="familia">Familia</a>
-                    <a href="#" class="categoria-tag" data-categoria="oracion">Oración</a>
-                    <a href="#" class="categoria-tag" data-categoria="esperanza">Esperanza</a>
-                    <a href="#" class="categoria-tag" data-categoria="evangelio">Evangelio</a>
+                    <a href="#" class="categoria-tag active" data-categoria="todos">
+                        🏠 Todos
+                    </a>
+                    <a href="#" class="categoria-tag" data-categoria="fe">
+                        ✨ Fe y Esperanza
+                    </a>
+                    <a href="#" class="categoria-tag" data-categoria="familia">
+                        👨‍👩‍👧‍👦 Familia
+                    </a>
+                    <a href="#" class="categoria-tag" data-categoria="oracion">
+                        🙏 Oración
+                    </a>
+                    <a href="#" class="categoria-tag" data-categoria="evangelio">
+                        📖 Evangelio
+                    </a>
+                    <a href="#" class="categoria-tag" data-categoria="juventud">
+                        👥 Juventud
+                    </a>
+                    <a href="#" class="categoria-tag" data-categoria="crecimiento">
+                        🌱 Crecimiento Espiritual
+                    </a>
+                    <a href="#" class="categoria-tag" data-categoria="servicio">
+                        🤝 Servicio
+                    </a>
                 </div>
             </div>
             
