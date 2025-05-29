@@ -131,11 +131,11 @@
     .container {
         padding: 0 var(--spacing-lg);
     }
-    
-    /* Grid adjustments */
+      /* Grid adjustments */
     .beliefs-grid,
     .services-grid,
     .eventos-grid,
+    .sermones-grid,
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-lg);
@@ -336,10 +336,10 @@
         font-size: var(--font-size-sm);
         margin-top: var(--spacing-sm);
     }
-    
-    /* All grids to single column */
+      /* All grids to single column */
     .services-grid,
     .eventos-grid,
+    .sermones-grid,
     .footer-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);

@@ -10,23 +10,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <script src="../js/script.js"></script>
-    <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
-    <header>
-        <div class="container">            <nav class="navbar">
-                <a href="index.html" class="logo">
+<body>    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="../index.html" class="logo">
                     <img src="../img/logo.png" alt="logo" class="logo-img">
                     <span class="logo-text"></span>
                 </a>
-                
-                <!-- Menú hamburguesa para móviles -->
+                  <!-- Menú hamburguesa para móviles -->
                 <button class="mobile-menu-toggle" aria-label="Abrir menú">
                     <div class="hamburger"></div>
-                </button>                <ul class="nav-links">
-                    <li><a href="index.html#acerca-de">Acerca de</a></li>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="../index.html#acerca-de">Acerca de</a></li>
                     <li><a href="servicios.html">Servicios</a></li>
                     <li><a href="eventos.html">Eventos</a></li>
                     <li><a href="sermones.html">Sermones</a></li>
@@ -45,12 +46,139 @@
             <h1>Eventos y Actividades</h1>
             <p>Descubre los próximos eventos y actividades de nuestra iglesia.</p>
         </div>
-    </section>
-
-    <!-- AQUÍ VA EL CONTENIDO ESPECÍFICO DE LA PÁGINA DE EVENTOS -->
+    </section>    <!-- AQUÍ VA EL CONTENIDO ESPECÍFICO DE LA PÁGINA DE EVENTOS -->
     <section class="events-content">
         <div class="container">
-            <!-- Contenido de eventos a agregar -->
+            <!-- Header de eventos -->
+            <div class="events-header">
+                <h2 class="events-title">Próximos Eventos</h2>
+                <p class="events-description">
+                    Únete a nosotros en estos eventos especiales donde fortalecemos nuestra fe y comunidad.
+                </p>
+            </div>
+
+            <!-- Grid de eventos -->
+            <div class="eventos-grid">
+                <!-- Evento 1 -->
+                <div class="evento-item">
+                    <div class="evento-image">
+                        <div class="evento-placeholder">📅</div>
+                    </div>
+                    <div class="evento-content">
+                        <div class="evento-date">
+                            📅 Domingo, 15 de Diciembre 2024
+                        </div>
+                        <h3 class="evento-title">Celebración de Navidad</h3>
+                        <p class="evento-description">
+                            Únete a nuestra celebración especial de Navidad con música, testimonios y reflexión sobre el nacimiento de Jesús.
+                        </p>
+                        <div class="evento-meta">
+                            <span class="evento-time">⏰ 6:00 PM</span>
+                            <span class="evento-location">📍 Templo Principal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evento 2 -->
+                <div class="evento-item">
+                    <div class="evento-image">
+                        <div class="evento-placeholder">🙏</div>
+                    </div>
+                    <div class="evento-content">
+                        <div class="evento-date">
+                            📅 Miércoles, 18 de Diciembre 2024
+                        </div>
+                        <h3 class="evento-title">Noche de Oración Especial</h3>
+                        <p class="evento-description">
+                            Una noche dedicada a la oración y búsqueda espiritual preparándonos para la temporada navideña.
+                        </p>
+                        <div class="evento-meta">
+                            <span class="evento-time">⏰ 7:00 PM</span>
+                            <span class="evento-location">📍 Salón de Oración</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evento 3 -->
+                <div class="evento-item">
+                    <div class="evento-image">
+                        <div class="evento-placeholder">👥</div>
+                    </div>
+                    <div class="evento-content">
+                        <div class="evento-date">
+                            📅 Sábado, 21 de Diciembre 2024
+                        </div>
+                        <h3 class="evento-title">Encuentro de Jóvenes</h3>
+                        <p class="evento-description">
+                            Actividades especiales para jóvenes con dinámicas, música y enseñanza bíblica adaptada.
+                        </p>
+                        <div class="evento-meta">
+                            <span class="evento-time">⏰ 7:00 PM</span>
+                            <span class="evento-location">📍 Salón Juvenil</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evento 4 -->
+                <div class="evento-item">
+                    <div class="evento-image">
+                        <div class="evento-placeholder">👨‍👩‍👧‍👦</div>
+                    </div>
+                    <div class="evento-content">
+                        <div class="evento-date">
+                            📅 Domingo, 22 de Diciembre 2024
+                        </div>
+                        <h3 class="evento-title">Día de la Familia</h3>
+                        <p class="evento-description">
+                            Celebremos juntos en familia con actividades para niños, almuerzo comunitario y momentos de fellowship.
+                        </p>
+                        <div class="evento-meta">
+                            <span class="evento-time">⏰ 10:00 AM</span>
+                            <span class="evento-location">📍 Patio Central</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evento 5 -->
+                <div class="evento-item">
+                    <div class="evento-image">
+                        <div class="evento-placeholder">🎵</div>
+                    </div>
+                    <div class="evento-content">
+                        <div class="evento-date">
+                            📅 Viernes, 27 de Diciembre 2024
+                        </div>
+                        <h3 class="evento-title">Concierto de Fin de Año</h3>
+                        <p class="evento-description">
+                            Despedimos el año con un hermoso concierto de música cristiana y testimonios de fe.
+                        </p>
+                        <div class="evento-meta">
+                            <span class="evento-time">⏰ 7:30 PM</span>
+                            <span class="evento-location">📍 Auditorio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evento 6 -->
+                <div class="evento-item">
+                    <div class="evento-image">
+                        <div class="evento-placeholder">🌟</div>
+                    </div>
+                    <div class="evento-content">
+                        <div class="evento-date">
+                            📅 Martes, 31 de Diciembre 2024
+                        </div>
+                        <h3 class="evento-title">Vigilia de Año Nuevo</h3>
+                        <p class="evento-description">
+                            Recibamos el nuevo año en oración, adoración y gratitud por las bendiciones recibidas.
+                        </p>
+                        <div class="evento-meta">
+                            <span class="evento-time">⏰ 10:30 PM</span>
+                            <span class="evento-location">📍 Templo Principal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

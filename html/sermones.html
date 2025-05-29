@@ -7,39 +7,42 @@
     <title>Sermones - Iglesia DIOS NOS AMA</title>
     <link rel="icon" href="../img/cruz.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     
     <!-- jQuery -->
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/sermones.js"></script>
 </head>
-<body>
-    <header>
+<body>    <header>
         <div class="container">
             <nav class="navbar">
                 <a href="../index.html" class="logo">
                     <img src="../img/logo.png" alt="logo" class="logo-img">
                     <span class="logo-text"></span>
-                </a>                <!-- Mobile menu toggle button -->
-                <button class="mobile-menu-toggle" aria-label="Abrir menú de navegación">
-                    <span class="hamburger"></span>
-                </button>                <ul class="nav-links">
+                </a>
+                
+                <!-- Menú hamburguesa para móviles -->
+                <button class="mobile-menu-toggle" aria-label="Abrir menú">
+                    <div class="hamburger"></div>
+                </button>
+                
+                <ul class="nav-links">
                     <li><a href="../index.html#acerca-de">Acerca de</a></li>
                     <li><a href="servicios.html">Servicios</a></li>
                     <li><a href="eventos.html">Eventos</a></li>
                     <li><a href="sermones.html">Sermones</a></li>
                     <li><a href="biblioteca.html">Biblioteca</a></li>
                 </ul>
-                
-                <!-- Mobile menu overlay -->
-                <div class="mobile-menu-overlay"></div>
             </nav>
         </div>
+        
+        <!-- Overlay para cerrar el menú móvil -->
+        <div class="mobile-menu-overlay"></div>
     </header>
 
     <!-- Sección de portada para la página de sermones -->
@@ -62,12 +65,14 @@
                     <div class="advanced-filters">
                         <div class="filters-row">
                             <div class="filter-group">
-                                <label class="filter-label">Predicador</label>
-                                <select class="filter-select" id="filter-predicador">
+                                <label class="filter-label">Predicador</label>                                <select class="filter-select" id="filter-predicador">
                                     <option value="">Todos los predicadores</option>
-                                    <option value="pastor-juan">Pastor Juan Martínez</option>
-                                    <option value="pastor-maria">Pastora María González</option>
-                                    <option value="pastor-carlos">Pastor Carlos Ruiz</option>
+                                    <option value="Juan Calvino">Juan Calvino</option>
+                                    <option value="Agustín de Hipona">Agustín de Hipona</option>
+                                    <option value="R.C. Sproul">R.C. Sproul</option>
+                                    <option value="Sugel Michelén">Sugel Michelén</option>
+                                    <option value="Apóstol Pablo">Apóstol Pablo</option>
+                                    <option value="Miguel Gosías">Miguel Gosías</option>
                                 </select>
                             </div>
                             <div class="filter-group">
@@ -118,31 +123,24 @@
             </div>
               <!-- Filtros por categorías -->
             <div class="sermones-categorias">
-                <h3>📚 Explorar por Categoría</h3>
-                <div class="categorias-tags">
+                <h3>📚 Explorar por Categoría</h3>                <div class="categorias-tags">
                     <a href="#" class="categoria-tag active" data-categoria="todos">
                         🏠 Todos
                     </a>
-                    <a href="#" class="categoria-tag" data-categoria="fe">
-                        ✨ Fe y Esperanza
+                    <a href="#" class="categoria-tag" data-categoria="doctrina">
+                        📖 Doctrina
                     </a>
-                    <a href="#" class="categoria-tag" data-categoria="familia">
-                        👨‍👩‍👧‍👦 Familia
+                    <a href="#" class="categoria-tag" data-categoria="conversion">
+                        💝 Conversión
                     </a>
-                    <a href="#" class="categoria-tag" data-categoria="oracion">
-                        🙏 Oración
+                    <a href="#" class="categoria-tag" data-categoria="predicacion">
+                        🎤 Predicación
                     </a>
                     <a href="#" class="categoria-tag" data-categoria="evangelio">
-                        📖 Evangelio
+                        ✝️ Evangelio
                     </a>
-                    <a href="#" class="categoria-tag" data-categoria="juventud">
-                        👥 Juventud
-                    </a>
-                    <a href="#" class="categoria-tag" data-categoria="crecimiento">
-                        🌱 Crecimiento Espiritual
-                    </a>
-                    <a href="#" class="categoria-tag" data-categoria="servicio">
-                        🤝 Servicio
+                    <a href="#" class="categoria-tag" data-categoria="santificacion">
+                        ✨ Santificación
                     </a>
                 </div>
             </div>

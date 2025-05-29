@@ -12,115 +12,112 @@
    ======================================== */
 
 $(document).ready(function() {
-    
-    // Base de datos de sermones (simulada)
+      // Base de datos de sermones con predicadores prominentes del cristianismo
     const sermones = [
         {
             id: 1,
-            titulo: "El Poder de la Fe",
-            predicador: "Pastor Juan Carlos",
+            titulo: "La Soberanía de Dios en la Salvación",
+            predicador: "Juan Calvino",
             fecha: "2025-05-20",
-            categoria: "fe",
-            duracion: "35 min",
-            imagen: "../img/sermones.jpg",
-            audio: "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav", // URL de ejemplo
-            extracto: "Descubre cómo la fe puede transformar tu vida y llevarte a experimentar milagros extraordinarios. En este sermón exploramos las bases bíblicas de una fe inquebrantable.",
-            versiculo: "Hebreos 11:1 - Es, pues, la fe la certeza de lo que se espera, la convicción de lo que no se ve.",
+            categoria: "doctrina",
+            duracion: "42 min",
+            imagen: "../img/Sermones/Calvino.jpg",
+            audio: "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+            extracto: "Una exposición profunda sobre la elección divina y la gracia irresistible. Calvino nos enseña sobre la seguridad de la salvación basada en la soberanía de Dios.",
+            versiculo: "Efesios 1:4-5 - Según nos escogió en él antes de la fundación del mundo, para que fuésemos santos y sin mancha delante de él, en amor habiéndonos predestinado para ser adoptados hijos suyos por medio de Jesucristo.",
             puntos: [
-                "La fe como fundamento de la vida cristiana",
-                "Ejemplos bíblicos de fe extraordinaria",
-                "Cómo desarrollar una fe inquebrantable",
-                "Los frutos de una vida de fe"
+                "La elección incondicional de Dios",
+                "La depravación total del hombre",
+                "La gracia irresistible en la conversión",
+                "La perseverancia de los santos"
             ]
         },
         {
             id: 2,
-            titulo: "Familia Según el Corazón de Dios",
-            predicador: "Pastora María Elena",
+            titulo: "Las Confesiones de un Corazón Transformado",
+            predicador: "Agustín de Hipona",
             fecha: "2025-05-13",
-            categoria: "familia",
-            duracion: "28 min",
-            imagen: "../img/F-iglesia.jpg",
+            categoria: "conversion",
+            duracion: "38 min",
+            imagen: "../img/Sermones/Agustin.webp",
             audio: "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
-            extracto: "Principios bíblicos para construir familias sólidas y bendecidas. Aprende cómo Dios diseñó la familia y su propósito eterno.",
-            versiculo: "Josué 24:15 - Pero yo y mi casa serviremos a Jehová.",
+            extracto: "Basado en sus famosas 'Confesiones', Agustín reflexiona sobre la búsqueda del alma humana por Dios y la gracia transformadora del Evangelio.",
+            versiculo: "Salmo 51:10 - Crea en mí, oh Dios, un corazón limpio, y renueva un espíritu recto dentro de mí.",
             puntos: [
-                "El diseño original de Dios para la familia",
-                "Roles y responsabilidades en el hogar cristiano",
-                "Crianza de hijos con valores bíblicos",
-                "La familia como testimonio al mundo"
+                "La inquietud del corazón sin Dios",
+                "El poder transformador de la gracia",
+                "La belleza de la confesión sincera",
+                "La paz que solo Dios puede dar"
             ]
         },
         {
             id: 3,
-            titulo: "La Oración que Mueve Montañas",
-            predicador: "Pastor David Ruiz",
+            titulo: "La Justificación Solo por Fe",
+            predicador: "R.C. Sproul",
             fecha: "2025-05-06",
-            categoria: "oracion",
-            duracion: "42 min",
-            imagen: "../img/eventos.jpg",
+            categoria: "doctrina",
+            duracion: "45 min",
+            imagen: "../img/Sermones/Sproul.webp",
             audio: "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
-            extracto: "Descubre los secretos de una vida de oración efectiva. Aprende a comunicarte con Dios de manera profunda y poderosa.",
-            versiculo: "Mateo 17:20 - Si tenéis fe como un grano de mostaza, diréis a este monte: Pásate de aquí allá, y se pasará.",
+            extracto: "Una explicación magistral de la doctrina central de la Reforma. Sproul demuestra cómo la justificación por fe solamente es el corazón del Evangelio.",
+            versiculo: "Romanos 3:28 - Concluimos, pues, que el hombre es justificado por fe sin las obras de la ley.",
             puntos: [
-                "Los fundamentos de la oración bíblica",
-                "Diferentes tipos de oración y su propósito",
-                "Obstáculos comunes en la vida de oración",
-                "Testimonios de oraciones respondidas"
+                "La insuficiencia de las obras humanas",
+                "La justicia imputada de Cristo",
+                "Solo la fe como medio de justificación",
+                "Las implicaciones prácticas de esta doctrina"
             ]
         },
         {
             id: 4,
-            titulo: "Esperanza en Tiempos Difíciles",
-            predicador: "Pastor Juan Carlos",
+            titulo: "El Llamado a la Predicación Expositiva",
+            predicador: "Sugel Michelén",
             fecha: "2025-04-29",
-            categoria: "esperanza",
-            duracion: "38 min",
-            imagen: "../img/fondo1.jpg",
+            categoria: "predicacion",
+            duracion: "40 min",
+            imagen: "../img/Sermones/sugel.jpg",
             audio: "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
-            extracto: "Cuando las circunstancias parecen imposibles, Dios nos ofrece una esperanza que no decepciona. Encuentra fortaleza en Su promesa.",
-            versiculo: "Romanos 5:5 - Y la esperanza no avergüenza; porque el amor de Dios ha sido derramado en nuestros corazones.",
+            extracto: "Michelén desafía a los predicadores a mantenerse fieles a la Palabra de Dios, explicando la importancia de la predicación expositiva en la iglesia moderna.",
+            versiculo: "2 Timoteo 4:2 - Que prediques la palabra; que instes a tiempo y fuera de tiempo; redarguye, reprende, exhorta con toda paciencia y doctrina.",
             puntos: [
-                "La naturaleza de la esperanza cristiana",
-                "Cómo mantener la esperanza en adversidades",
-                "Promesas bíblicas para tiempos difíciles",
-                "Testimonios de victoria y superación"
+                "La autoridad suprema de las Escrituras",
+                "Métodos de interpretación bíblica",
+                "La responsabilidad del predicador",
+                "El poder transformador de la Palabra"
             ]
         },
         {
             id: 5,
-            titulo: "El Evangelio de Jesucristo",
-            predicador: "Pastor David Ruiz",
+            titulo: "La Centralidad del Evangelio",
+            predicador: "Apóstol Pablo",
             fecha: "2025-04-22",
             categoria: "evangelio",
-            duracion: "45 min",
-            imagen: "../img/servicios.jpg",
+            duracion: "35 min",
+            imagen: "../img/Sermones/Paul.jpg",
             audio: "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
-            extracto: "El mensaje central del cristianismo explicado con claridad. Descubre el plan de salvación de Dios para la humanidad.",
-            versiculo: "Juan 3:16 - Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito.",
-            puntos: [
+            extracto: "Basado en las epístolas paulinas, este sermón presenta el mensaje central del cristianismo: Cristo crucificado y resucitado como único medio de salvación.",
+            versiculo: "1 Corintios 15:3-4 - Porque primeramente os he enseñado lo que asimismo recibí: Que Cristo murió por nuestros pecados, conforme a las Escrituras; y que fue sepultado, y que resucitó al tercer día, conforme a las Escrituras.",            puntos: [
                 "El problema del pecado humano",
                 "La solución de Dios: Jesucristo",
-                "Cómo recibir la salvación",
-                "La nueva vida en Cristo"
+                "La muerte expiatoria de Cristo",
+                "La nueva vida en Cristo por fe"
             ]
         },
         {
             id: 6,
-            titulo: "Creciendo en Gracia",
-            predicador: "Pastora María Elena",
+            titulo: "La Vida Consagrada a Dios",
+            predicador: "Miguel Gosías",
             fecha: "2025-04-15",
-            categoria: "fe",
-            duracion: "33 min",
-            imagen: "../img/sermones.jpg",
+            categoria: "santificacion",
+            duracion: "37 min",
+            imagen: "../img/Sermones/gosias.jpg",
             audio: "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
-            extracto: "El crecimiento espiritual es un proceso continuo. Aprende las disciplinas que nos ayudan a madurar en la fe cristiana.",
-            versiculo: "2 Pedro 3:18 - Antes bien, creced en la gracia y el conocimiento de nuestro Señor.",
-            puntos: [
-                "Las etapas del crecimiento espiritual",
-                "Disciplinas espirituales esenciales",
-                "El papel de la comunidad en nuestro crecimiento",
-                "Frutos de una vida madura en Cristo"
+            extracto: "Un llamado profundo a la santificación y consagración total a Dios. Gosías nos desafía a vivir vidas que honren al Señor en cada área.",
+            versiculo: "Romanos 12:1 - Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional.",            puntos: [
+                "El llamado a la santificación",
+                "La separación del mundo y sus valores",
+                "Vivir como sacrificio vivo a Dios",
+                "Los frutos de una vida consagrada"
             ]
         }
     ];
@@ -808,13 +805,11 @@ function mostrarSermones(sermonesArray) {
 // Función para obtener nombre legible de categoría
 function obtenerNombreCategoria(categoria) {
     const categorias = {
-        'fe': 'Fe',
-        'familia': 'Familia',
-        'oracion': 'Oración',
+        'doctrina': 'Doctrina',
+        'conversion': 'Conversión',
+        'predicacion': 'Predicación',
         'evangelio': 'Evangelio',
-        'juventud': 'Juventud',
-        'crecimiento': 'Crecimiento',
-        'servicio': 'Servicio'
+        'santificacion': 'Santificación'
     };
     return categorias[categoria] || categoria;
 }
@@ -830,3 +825,104 @@ function formatearFecha(fechaString) {
     };
     return fecha.toLocaleDateString('es-ES', opciones);
 }
+
+// ========================================
+// ESTADÍSTICAS ANIMADAS
+// ========================================
+
+// Función para animar contadores
+function animateCounter(element, target, duration = 2000) {
+    const start = 0;
+    const startTime = performance.now();
+    
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Función de easing para suavizar la animación
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = Math.floor(start + (target - start) * easeOutQuart);
+        
+        // Formatear número con + si es necesario
+        const originalText = element.textContent;
+        const hasPlus = originalText.includes('+');
+        
+        if (hasPlus) {
+            element.textContent = current + '+';
+        } else {
+            element.textContent = current.toLocaleString();
+        }
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            // Asegurar que muestre el valor final correcto
+            element.textContent = originalText;
+        }
+    }
+    
+    requestAnimationFrame(updateCounter);
+}
+
+// Función para observar elementos y activar animaciones
+function initStatsAnimation() {
+    const statsSection = document.querySelector('.sermones-stats');
+    if (!statsSection) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+                
+                statNumbers.forEach((stat, index) => {
+                    // Agregar clase de animación
+                    setTimeout(() => {
+                        stat.classList.add('counting');
+                        
+                        // Extraer número del texto
+                        const text = stat.textContent;
+                        const number = parseInt(text.replace(/[^\d]/g, ''));
+                        
+                        // Animar con delay escalonado
+                        setTimeout(() => {
+                            animateCounter(stat, number, 2000);
+                        }, index * 200);
+                        
+                    }, index * 100);
+                });
+                
+                // Desconectar observer después de la primera animación
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    observer.observe(statsSection);
+}
+
+// Función para agregar efectos de hover mejorados
+function initStatsInteractions() {
+    const statItems = document.querySelectorAll('.stat-item');
+    
+    statItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+}
+
+// Inicializar estadísticas cuando el DOM esté listo
+$(document).ready(function() {
+    // Inicializar animaciones después de un pequeño delay
+    setTimeout(() => {
+        initStatsAnimation();
+        initStatsInteractions();
+    }, 500);
+});

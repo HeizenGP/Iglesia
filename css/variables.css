@@ -2,53 +2,53 @@
    IGLESIA DIOS NOS AMA - VARIABLES.CSS
    ========================================
    
-   Variables CSS globales para mantener consistencia
+   Variables CSS globales optimizadas para mantener consistencia
    en el diseño y facilitar el mantenimiento del código.
+   Solo contiene variables realmente utilizadas en el proyecto.
    
    Organización:
    1. COLORES - Paleta de colores del sitio
-   2. TIPOGRAFÍA - Fuentes y tamaños de texto
+   2. TIPOGRAFÍA - Fuentes y tamaños de texto  
    3. ESPACIADO - Márgenes, padding y dimensiones
    4. SOMBRAS - Box-shadow predefinidas
-   5. BORDES - Border-radius y borders
+   5. BORDES - Border-radius predefinidos
    6. TRANSICIONES - Animaciones y efectos
-   7. BREAKPOINTS - Puntos de quiebre responsivos
+   7. Z-INDEX - Capas de elementos
+   8. EFECTOS - Transformaciones predefinidas
    ======================================== */
 
 :root {
     /* ========================================
        1. COLORES
        ======================================== */
-    
-    /* ------ COLORES PRINCIPALES ------ */
-    --color-primary: #0077cc;           /* Azul principal */
-    --color-primary-dark: #005fa3;      /* Azul oscuro para hover */
-    --color-primary-light: rgba(0,119,204,0.1); /* Azul claro para fondos */
-    --color-primary-transparent: rgba(0,119,204,0.8); /* Azul semi-transparente */
+      /* ------ COLORES PRINCIPALES ------ */
+    --color-primary: #64717b;           /* Color primario consistente */
+    --color-primary-dark: #005fa3;      /* Color primario oscuro para hover */
+    --primary-color: #64717b;           /* Alias para compatibilidad */
     
     /* ------ COLORES SECUNDARIOS ------ */
-    --color-secondary: #656554;         /* Verde grisáceo del header 656554*/
+    --color-secondary: #656554;         /* Verde grisáceo del header */
     --color-accent: #535c5a;           /* Verde oscuro para CTA */
     
     /* ------ COLORES NEUTROS ------ */
     --color-black: #000000;            /* Negro puro */
     --color-dark: #050505;             /* Negro muy oscuro para texto */
     --color-gray-dark: #333;           /* Gris oscuro */
+    --dark-gray: #333;                 /* Alias para compatibilidad */
     --color-gray: #555;                /* Gris medio */
     --color-gray-medium: #666;         /* Gris medio-claro */
     --color-gray-light: #999;          /* Gris claro */
     --color-gray-lighter: #ccc;        /* Gris muy claro */
     --color-gray-lightest: #ddd;       /* Gris casi blanco */
+    --medium-gray: #ccc;               /* Alias para compatibilidad */
     --color-white: #ffffff;            /* Blanco puro */
+    --white: #ffffff;                  /* Alias para compatibilidad */
     --color-off-white: #fefefe;        /* Blanco ligeramente grisáceo */
     
     /* ------ COLORES DE FONDO ------ */
     --bg-light-gray: #f7f7f7;         /* Fondo gris claro */
     --bg-medium-gray: #f2f2f2;        /* Fondo gris medio */
-    --bg-tag: #f0f0f0;                /* Fondo para etiquetas */
-    --bg-circle: #e6e6e6;             /* Fondo para círculos */
-    --bg-thumbnail: #f5f5f5;          /* Fondo para miniaturas */
-    
+    --bg-circle: #e6e6e6;             /* Fondo para círculos */    
     /* ========================================
        2. TIPOGRAFÍA
        ======================================== */
@@ -66,17 +66,17 @@
     --font-size-2xl: 1.75rem;         /* 28px */
     --font-size-3xl: 2.25rem;         /* 36px */
     --font-size-4xl: 3rem;            /* 48px */
+    --font-size-5xl: 3.5rem;          /* 56px - Nueva variable */
     
     /* ------ PESOS DE FUENTE ------ */
-    --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-bold: 700;
+    --font-weight-black: 900;         /* Nueva variable */
     
     /* ------ ALTURA DE LÍNEA ------ */
     --line-height-tight: 1.4;
     --line-height-normal: 1.5;
-    --line-height-relaxed: 1.6;
-    
+    --line-height-relaxed: 1.6;    
     /* ========================================
        3. ESPACIADO
        ======================================== */
@@ -101,11 +101,8 @@
     --header-height: 100px;
     --logo-height: 65px;
     --logo-mobile-height: 50px;
-    --thumbnail-height: 200px;
     --team-image-size: 200px;
-    --social-icon-size: 30px;
-    --play-button-size: 60px;
-    
+    --social-icon-size: 30px;    
     /* ========================================
        4. SOMBRAS
        ======================================== */
@@ -116,7 +113,8 @@
     --shadow-md: 0 2px 5px rgba(0,0,0,0.1);
     --shadow-lg: 0 3px 10px rgba(0,0,0,0.1);
     --shadow-xl: 0 5px 15px rgba(0,0,0,0.1);
-    --shadow-2xl: 0 10px 20px rgba(0,0,0,0.15);
+    --shadow-soft: 0 2px 8px rgba(0,0,0,0.08);    /* Nueva variable */
+    --shadow-strong: 0 4px 12px rgba(0,0,0,0.15); /* Nueva variable */
     
     /* ========================================
        5. BORDES
@@ -129,11 +127,11 @@
     --radius-lg: 20px;
     --radius-full: 50%;
     
-    /* ------ BORDES ------ */
-    --border-width: 1px;
-    --border-style: solid;
-    --border-color: var(--color-primary);
-    --border-gray: 1px solid var(--color-gray-lighter);
+    /* Aliases para compatibilidad */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 20px;
+    --border-radius-full: 50%;
     
     /* ========================================
        6. TRANSICIONES
