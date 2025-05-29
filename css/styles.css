@@ -289,7 +289,8 @@ footer {
 
 /* INDEX: Estilos específicos solo para la página de inicio */
 .hero-home {
-    background-image: url('../img/fondo1.jpg');
+    background-color: var(--color-primary) !important;
+    background-image: none !important;
 }
 
 /* INDEX: Contenido de la sección "about" (acerca de) */
@@ -464,9 +465,10 @@ footer {
     color: var(--color-primary);
 }
 
-/* SERVICES: Hero específico para página de servicios (con imagen de fondo específica) */
-.hero {
-    background-image: url('../img/servicios.jpg'); /* Imagen específica para servicios */
+/* SERVICES: Hero específico para página de servicios */
+#servicios.hero {
+    background-color: var(--color-primary);
+    background-image: none;
 }
 
 /* ========================================
@@ -708,8 +710,9 @@ footer {
 }
 
 /* SERMONES: Hero específico para página de sermones */
-.hero {
-    background-image: url('../img/sermones.jpg'); /* Imagen específica para sermones */
+#sermones.hero {
+    background-color: var(--color-primary);
+    background-image: none;
 }
 
 /* ========================================
@@ -1065,6 +1068,12 @@ footer {
    5. EVENTOS PAGE STYLES
    ======================================== */
 
+/* EVENTOS: Hero específico para página de eventos */
+#eventos.hero {
+    background-color: var(--color-primary);
+    background-image: none;
+}
+
 /* ------ EVENTOS CONTENT SECTION ------ */
 .events-content {
     padding: var(--spacing-4xl) 0;
@@ -1247,7 +1256,7 @@ footer {
 
 /* ------ BIBLIOTECA HERO SECTION ------ */
 .biblioteca-hero {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background-color: var(--color-primary);
     background-attachment: fixed;
     min-height: 60vh;
     position: relative;

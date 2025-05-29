@@ -20,14 +20,13 @@
 :root {
     /* ========================================
        1. COLORES
-       ======================================== */
-      /* ------ COLORES PRINCIPALES ------ */
-    --color-primary: #64717b;           /* Color primario consistente */
-    --color-primary-dark: #005fa3;      /* Color primario oscuro para hover */
-    --primary-color: #64717b;           /* Alias para compatibilidad */
+       ======================================== */      /* ------ COLORES PRINCIPALES ------ */
+    --color-primary: #282c2f;           /* Color primario consistente */
+    --color-primary-dark: #212a30;      /* Color primario oscuro para hover */
+    --primary-color: #1878c2;           /* Alias para compatibilidad */
     
     /* ------ COLORES SECUNDARIOS ------ */
-    --color-secondary: #656554;         /* Verde grisáceo del header */
+    --color-secondary: #393935;         /* Verde grisáceo del header */
     --color-accent: #535c5a;           /* Verde oscuro para CTA */
     
     /* ------ COLORES NEUTROS ------ */
